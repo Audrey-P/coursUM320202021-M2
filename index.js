@@ -9,10 +9,6 @@ const fetch = require('node-fetch');
 
 
 app.get("/", function(req, res){
-    res.send("helloW!");
-})
-
-app.get("/fetchair/shangai", function(req, res){
     let url = "http://api.waqi.info/feed/shanghai/?token=demo" ;
     fetch(url)
     .then(res => res.json())
