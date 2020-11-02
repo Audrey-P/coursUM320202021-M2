@@ -9,12 +9,12 @@ const fetch = require('node-fetch');
 
 
 app.get("/", function(req, res){
-    let url = "http://api.waqi.info/feed/shanghai/?token=demo" ;
+    let url = "https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-sise-effectifs-d-etudiants-inscrits-esr-public/api/?disjunctive.rentree_lib&fbclid=IwAR00KsUgXQS9VYqlSkteRHighaGmmEf7hSw2mG6bcTs0c_znnUIkn9Ip_5Q" ;
     fetch(url)
     .then(res => res.json())
     .then(json => {
         console.log(json);
-        res.send("data fetched look your console");
+        res.send("fetch okkkkk");
     });
 })
 
