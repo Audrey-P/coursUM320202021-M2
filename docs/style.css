@@ -4,9 +4,10 @@ header {
 	padding: auto;
 	font-weight: bold;
 	letter-spacing: 0.15em;
-	margin: auto;
+	margin-bottom:1em ;
 	font-size:1.3em;
-	display: inline-block;
+	display: block;
+	background-color: #BBDEEA;
 }
 
 	header > * {
@@ -15,7 +16,7 @@ header {
 	}
 
 	header .symbol {
-		margin-right: 0.65em;
+		margin-right: 0.8em;
 	}
 
 		header .symbol img {
@@ -31,14 +32,27 @@ header {
 
 
 /* SECTIONS */
-header {
-	
+section {
 	margin: 2em 0 2em 0;
-	
+	color: #3CA0C1;
+	display: block;
 }
 
-	.graph {
-		background-color: #333333;
-		width: 15em;
-		height: 15em;
+	#graphiques > * {
+		display: inline-block;
+		vertical-align: middle;
 	}
+	
+	.vizu {
+		background-color: #BBDEEA;
+		width: 30em;
+		height: 30em;
+		margin: 0 5em 0 5em;
+	}
+
+	.title_graph {
+		color: black;
+	}
+
+
+	
