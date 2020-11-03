@@ -1,0 +1,44 @@
+/* Header */
+
+header {
+	padding: auto;
+	font-weight: bold;
+	letter-spacing: 0.15em;
+	margin: auto;
+	font-size:1.3em;
+	display: inline-block;
+}
+
+	header > * {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	header .symbol {
+		margin-right: 0.65em;
+	}
+
+		header .symbol img {
+			display: block;
+			width: 8em;
+			height: 8em;
+		}
+
+	#title {
+		line-height:0.6em;
+	}
+
+
+
+/* SECTIONS */
+header {
+	
+	margin: 2em 0 2em 0;
+	
+}
+
+	.graph {
+		background-color: #333333;
+		width: 15em;
+		height: 15em;
+	}
