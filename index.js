@@ -29,28 +29,28 @@ app.get("/data/univs", cors(corsOptions), function(req, res){
     .then(res => res.json())
     .then(json => {
         console.log("fetch", json);
+        let records = json.records; // on reccupere records car c est le tableau qui nous interesse 
+        records.forEach(function(record){
+            let univ = {}; //objet vide
+            univ.id = record.etablissement; // a completer - correspondance entre donnees fetch et nom colonnes dans tableau
 
-    let records = json.records; // on reccupere records car c est le tableau qui nous interesse 
-    records.forEach(function(record){
-        let univ = {}; //objet vide
-        univ.id = record.etablissement; // a completer - correspondance entre donnees fetch et nom colonnes dans tableau
+            let url2 = "https://data.enseignementsup-recherche.gouv.fr/api/records/1.0/search/?dataset=fr-esr-parcoursup&q=&sort=tri&facet=session&facet=contrat_etab&facet=cod_uai&facet=g_ea_lib_vx&facet=dep_lib&facet=region_etab_aff&facet=acad_mies&facet=fili&facet=form_lib_voe_acc&facet=regr_forma&facet=fil_lib_voe_acc&facet=detail_forma&facet=tri&timezone=Europe%2FBerlin";
+            fetch(url2)
+            .then(res => res.json())
+            .then(json => {
+                console.log("fetch", json);
 
-        let url2 = "https://data.enseignementsup-recherche.gouv.fr/api/records/1.0/search/?dataset=fr-esr-parcoursup&q=&sort=tri&facet=session&facet=contrat_etab&facet=cod_uai&facet=g_ea_lib_vx&facet=dep_lib&facet=region_etab_aff&facet=acad_mies&facet=fili&facet=form_lib_voe_acc&facet=regr_forma&facet=fil_lib_voe_acc&facet=detail_forma&facet=tri&timezone=Europe%2FBerlin";
-        fetch(url2)
-        .then(res => res.json())
-        .then(json => {
-            console.log("fetch", json);
-
-            records.forEach(function(record2){
-            if (univ.id == record2.cod_aui){
-                //univ. // a finir
-            };
+                records.forEach(function(record2){
+                    if (univ.id == record2.cod_aui){
+                    //univ. // a finir
+                    };
+                });
+            records.push(univ)
             });
-        records.push(univ)
         });
     });
     res.send(records) //renvoie la collection d'universites
-    });
+});
 
 //A fetch to get only serieL
 app.get("/data/serieL", cors(corsOptions), function(req, res){
