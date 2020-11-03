@@ -59,7 +59,16 @@ app.get("/data/serieL", cors(corsOptions), function(req, res){
     .then(res => res.json())
     .then(json => {
         console.log("fetch", json);
-        res.send("Série L");
+        res.format({
+            'text/html': function () {
+            res.send("Data fetched, Serie L");
+            },
+            'application/json': function () {
+                res.setHeader('Content-disposition', 'attachment; filename=score.json'); //do nothing
+                res.set('Content-Type', 'application/json');
+                res.json(json);
+              }
+            })
     });
 })
 
