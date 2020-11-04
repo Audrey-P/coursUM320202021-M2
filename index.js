@@ -12,6 +12,10 @@ const {promisify} = require('util');
 const writeFilePromise = promisify(writeFile);
 var https = require('https');
 var cors = require('cors');
+var readline = require('readline');
+var stream = require('stream');
+const myfile = "dataFile.json";
+
 
 var corsOptions = {
     origin: 'https://Audrey-P.github.io',
@@ -33,12 +37,12 @@ async function initialize()
 	//initjson = await fetch(url1).then(response => response.json());
     //console.log("initjson", initjson);
 	
-	function downloadFile(url, outputPath) {
+	async function downloadFile(url, outputPath) {
 	  return fetch(url)
 		  .then(x => x.arrayBuffer())
 		  .then(x => writeFilePromise(outputPath, Buffer.from(x)));
 	}
-	//downloadFile(url1, "dataFile.json");
+	//await downloadFile(url1, myfile);
 
     console.log("now can start server");
 	// let url2 = "https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-parcoursup/download/?format=json&timezone=Europe/Berlin&lang=fr;";
@@ -49,7 +53,23 @@ async function initialize()
 	//serves static files
 	app.use(express.static('docs'));
 	
-	// app.get("/univs", cors(corsOptions), function(req, res){
+	app.get("/univs", cors(corsOptions), function(req, res){
+		var instream = fs.createReadStream(myfile);
+		var outstream = new stream;
+		var rl = readline.createInterface(instream, outstream);
+		rl.on('line', function(line) {
+		  console.log(line);
+		});
+	})
+    
+	app.listen(port, function () {
+		console.log('Serveur listening on port ' + port);
+	});
+}
+
+initialize();
+
+// app.get("/univs", cors(corsOptions), function(req, res){
 	
 		// let univs = []; //creation tableau vide
 		// let url1 = "https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-sise-effectifs-d-etudiants-inscrits-esr-public/download/?format=json&disjunctive.rentree_lib=true&refine.rentree_lib=2018-19&timezone=Europe/Berlin&lang=fr" ;
@@ -144,21 +164,3 @@ async function initialize()
 		
 		// res.send(univs); // retourne une array vide alors qu'il devrait y avoir au moins une valeur
 	// })
-	
-	app.get("/univs", cors(corsOptions), function(req, res){
-        //var data = fs.readFileSync('dataFile.json', 'utf8');
-		console.log('test');
-		// fs.readFile("dataFile.json", 'utf8', (err, data) => {
-			// //const databases = JSON.parse(data);
-			// console.log(data);
-		// });
-		fs.readFileSync("dataFile.json", 'utf8');
-		console.log(datas);
-	})
-    
-	app.listen(port, function () {
-		console.log('Serveur listening on port ' + port);
-	});
-}
-
-initialize();
