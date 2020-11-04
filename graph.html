@@ -1,0 +1,111 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="icon" type="image/png" href="img/logo.png" />
+<link rel="stylesheet" href="index.css">
+<script src="d3.v5.js"></script>
+	
+<title>Graphs</title>
+</head>
+
+
+<body <!-- onload="draw()"--> >
+
+        <!-- HEADER  -->
+        <div id="logo">
+            <img src="img/logo.png" style="width: 10%">
+        </div>
+		<!-- CRITERES  -->
+
+		<div class="bac" id="bac">
+                <h2>Université souhaitée</h2>
+                <div>
+                    <input type="text" id="searchinterests" class="interestsinput" placeholder="Search..." onkeyup="search()">
+					
+                </div>
+         </div>
+
+
+<svg id="svg" width="800" height="800">
+</svg>	
+
+
+    <script>
+
+
+
+        // RECHERCHE INTERET 
+        function search() {
+            
+            var input, filter, ul, li, a, i, txtValue;
+
+            input = document.getElementById('searchinterests');
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("formulaire");
+            li = ul.getElementsByTagName("li");
+            
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("label")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+                } else {
+                li[i].style.display = "none";
+                }
+            }
+        }
+
+function draw(){
+			d3.json("exo2.json").then(function(data){
+				var svg= d3.select("#svg");
+				var gContainer= svg.append("g");
+				var borderSVG= svg.append("rect");
+				borderSVG.attr("width",600);
+				borderSVG.attr("height",550);
+				borderSVG.attr("fill","none");
+				borderSVG.attr("stroke","gray");
+				
+
+				//Création de l'axe Y
+				var scaleY = d3.scaleLinear();
+				scaleY.domain([0,1000]); //1000 à changer
+				scaleY.range([500,0]); // 500 à changer
+				
+				var axisY = d3.axisLeft(scaleY);
+				var gAxisY = gContainer.append("g");
+				gAxisY.call(axisY);
+				gAxisY.attr("transform", "translate(50,25)");
+				
+				
+				//Création de l'axe X
+
+				
+				var scaleX = d3.scaleLinear();
+				scaleX.domain([0,1000]); //à changer
+				scaleX.range([0,500]);//à changer
+					
+				var axisX = d3.axisBottom(scaleX);
+				var gAxisX = gContainer.append("g");
+				gAxisX.call(axisX);
+				gAxisX.attr("transform", "translate(50,525)");
+
+
+
+
+
+					
+});					
+}
+
+
+/////"g_ea_lib_vx" pour avoir les établissements
+
+
+
+</script>
+
+
+</body>
+
+
+</html>
