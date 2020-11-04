@@ -6,11 +6,15 @@ var app = express();
 const port = process.env.PORT || 3000 ;
 
 const fetch = require('node-fetch');
+const {writeFile} = require('fs');
+const fs = require('fs');
+const {promisify} = require('util');
+const writeFilePromise = promisify(writeFile);
 var https = require('https');
 var cors = require('cors');
 
 var corsOptions = {
-    origin: 'https://Fleur09.github.io',
+    origin: 'https://Audrey-P.github.io',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
   }
 
@@ -26,13 +30,21 @@ let initjson2 = {};
 async function initialize()
 {
 	let url1 = "https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-sise-effectifs-d-etudiants-inscrits-esr-public/download/?format=json&disjunctive.rentree_lib=true&refine.rentree_lib=2018-19&timezone=Europe/Berlin&lang=fr" ;
-	initjson = await fetch(url1).then(response => response.json());
+	//initjson = await fetch(url1).then(response => response.json());
     //console.log("initjson", initjson);
+	
+	function downloadFile(url, outputPath) {
+	  return fetch(url)
+		  .then(x => x.arrayBuffer())
+		  .then(x => writeFilePromise(outputPath, Buffer.from(x)));
+	}
+	//downloadFile(url1, "dataFile.json");
+
     console.log("now can start server");
-	let url2 = "https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-parcoursup/download/?format=json&timezone=Europe/Berlin&lang=fr;";
-	initjson2 = await fetch(url2).then(response => response.json());
-    //console.log("initjson2", initjson2);
-    console.log("now can start server (2)");
+	// let url2 = "https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-parcoursup/download/?format=json&timezone=Europe/Berlin&lang=fr;";
+	// initjson2 = await fetch(url2).then(response => response.json());
+    // //console.log("initjson2", initjson2);
+    // console.log("now can start server (2)");
 	
 	//serves static files
 	app.use(express.static('docs'));
@@ -134,25 +146,16 @@ async function initialize()
 	// })
 	
 	app.get("/univs", cors(corsOptions), function(req, res){
-        let url1 = "https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-sise-effectifs-d-etudiants-inscrits-esr-public/download/?format=json&disjunctive.rentree_lib=true&refine.rentree_lib=2018-19&timezone=Europe/Berlin&lang=fr" ;
-        fetch(url1)
-        .then(res => res.json())
-        .then(json => {
-            console.log("fetch", json);
-
-            res.format({
-                'text/html': function () {
-                res.send("data fetched look your console");
-                },
-                'application/json': function () {
-                    res.setHeader('Content-disposition', 'attachment; filename=score.json'); //do nothing
-                    res.set('Content-Type', 'application/json');
-                    res.json(json);
-                }
-			})
-        });
-    })
-	
+        //var data = fs.readFileSync('dataFile.json', 'utf8');
+		console.log('test');
+		// fs.readFile("dataFile.json", 'utf8', (err, data) => {
+			// //const databases = JSON.parse(data);
+			// console.log(data);
+		// });
+		fs.readFileSync("dataFile.json", 'utf8');
+		console.log(datas);
+	})
+    
 	app.listen(port, function () {
 		console.log('Serveur listening on port ' + port);
 	});
