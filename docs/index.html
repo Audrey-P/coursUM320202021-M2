@@ -4,14 +4,62 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<title>Choisis ton orientation</title>
-		<script type="text/javascript" src="index.js"></script>
+		<!--<script type="text/javascript" src="index.js"></script>  ************************** -->
 		<link type="text/css" rel="stylesheet" href="style.css">
+		<script src="/d3/d3.js"></script> 
 		<!-- <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css" type="text/css" />	  -->	
 		<!-- <script src="bootstrap/dist/js/bootstrap.min.js"></script>  -->
 	</head>
 	
+
+
+<script>
+
+//***************************************************************
+function draw(){
+				var svg= d3.select("#svg");
+				var gContainer= svg.append("g");
+				var borderSVG= svg.append("rect");
+				//borderSVG.attr("width",600);
+				//borderSVG.attr("height",550);
+				borderSVG.attr("fill","none");
+				//borderSVG.attr("stroke","gray");
+				
+               // var A = records.map(function(d) { return d.records}); // On récupère les noms des etablissements dans une variable A
+                //var B = Array.from({length: data.length}, (v, k) => k*100); // On créer le bon nombre de graduation selon la taille du jeu de données
+                
+                //console.log(A);
+                //console.log(records);
+				
+                //Création de l'axe Y
+				//var scaleY = d3.scaleOrdinal();
+				var scaleY = d3.scaleLinear();
+				scaleY.domain([1000,0]); // A normalement
+                scaleY.range([0,350]); // B normalement...
+				
+				var axisY = d3.axisLeft(scaleY);
+				var gAxisY = gContainer.append("g");
+				gAxisY.call(axisY);
+				gAxisY.attr("transform", "translate(50,25)");
+				
+				
+				//Création de l'axe X
+				
+				var scaleX = d3.scaleLinear();
+				scaleX.domain([0,1000]); //à changer
+				scaleX.range([0,400]);//à changer
+					
+				var axisX = d3.axisBottom(scaleX);
+				var gAxisX = gContainer.append("g");
+				gAxisX.call(axisX);
+				gAxisX.attr("transform", "translate(50,375)");					
+};
+//*******************************************************************
+
+</script>
+
 	
-	<body>
+	<body onload="draw()"> <!-- ******************* -->
 	
 	<!-- Header -->
 		<header>
@@ -24,7 +72,6 @@
 			</span>
 			
 		</header>
-
 
 
 		<section id="section_principale">
@@ -60,16 +107,26 @@
 		</section>
 
 
-
 		<section id="graphiques">
 		
-			<article class="vizu">
+			<div class="vizu">
 				<p class="title_graph">Titre du graph #1</p>
-			</article>				
+				
+								<!--*************************-->
+								<svg id="svg" width="470" height="400"> 
+								</svg>	
+								<!--*************************-->
+			</div>				
 			
-			<article class="vizu">
+			<div class="vizu"></article>
 				<p class="title_graph">Titre du graph #2</p>
-			</article>	
+
+								<!--
+								<svg id="svg" width="470" height="400"> 
+								</svg>	
+								-->
+
+			</div>	
 
 
 					
