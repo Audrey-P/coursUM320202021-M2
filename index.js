@@ -48,56 +48,53 @@ async function initialize()
 	//await downloadFile(url1, myfile);
 	//await downloadFile(url2, myfile2);
 
-    console.log("now can start server");
+    
 	
 	//serves static files
 	app.use(express.static('docs'));
 	
 	
-		let univs = [];
-		let csvData = [];
-		fs.createReadStream(myfile)
-			.pipe(parse({delimiter: ';'}))
-			.on('data', function(csvrow) {
-				//do something with csvrow
-				csvData.push(csvrow);
-			})
-	
-		let univ = {};
-		let nomEtab = [];
-		csvData.forEach(function(row){
-			univ.id = row[6];
-			univ.rentree = row[0];
-			univ.academie = row[58];
-			univ.commune = row[52];
-			univ.region = row[60];
-			univ.wiki = row[9];
-			univ.departement = row[56];
-			univ.nometablissement = row[7];
-			univ.typeetablissement = row[2];
-			univ.type2 = row[4];
-			univ.uucr = row[66];
-			//univ.eff = csvrow[78];
-			
-			var data_filter = csvData.filter( element => element[6] == univ.id);
-			data_filter.forEach(function(elt){
-				//console.log(elt.fields.effectif_total, elt.fields.etablissement);
-				univ.eff += elt[78];
-				console.log(univ.eff);
-			});
-			
-			if(nomEtab.includes(univ.id)){
-				return;
-			}else{
-				nomEtab.push(univ.id);
-				univs.push(univ);
-			}
+	let univs = [];
+	let csvData = [];
+	await fs.createReadStream(myfile)
+		.pipe(parse({delimiter: ';'}))
+		.on('data', function(csvrow) {
+			//do something with csvrow
+			csvData.push(csvrow);
 		})
+	console.log("now can start server");
+	
 		
-	
-	
-	
-	console.log("now can call routes");
+	let nomEtab = [];
+	csvData.forEach(function(row){
+		let univ = {};
+		univ.id = row[6];
+		univ.rentree = row[0];
+		univ.academie = row[58];
+		univ.commune = row[52];
+		univ.region = row[60];
+		univ.wiki = row[9];
+		univ.departement = row[56];
+		univ.nometablissement = row[7];
+		univ.typeetablissement = row[2];
+		univ.type2 = row[4];
+		univ.uucr = row[66];
+		//univ.eff = csvrow[78];
+		
+		var data_filter = csvData.filter( element => element[6] == univ.id);
+		data_filter.forEach(function(elt){
+			//console.log(elt.fields.effectif_total, elt.fields.etablissement);
+			univ.eff += elt[78];
+			console.log(univ.eff);
+		});
+		
+		if(nomEtab.includes(univ.id)){
+			return;
+		}else{
+			nomEtab.push(univ.id);
+			univs.push(univ);
+		}
+	})
 	
 	app.get("/univs", cors(corsOptions), function(req, res){
 		console.log('je suis la');	
