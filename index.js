@@ -1,0 +1,107 @@
+'use strict'
+
+var express = require('express');
+var app = express();
+
+const port = process.env.PORT || 3000 ;
+
+var fetch = require('node-fetch');
+var https = require('https');
+
+
+var cors = require('cors');
+
+var corsOptions = {
+    origin: 'https://Audrey-P.github.io',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }
+
+
+//init some date fetched somewhere
+let initjson = {};
+
+async function initialize()
+{
+    let url = "https://data.enseignementsup-recherche.gouv.fr/api/records/1.0/search/?dataset=fr-esr-sise-effectifs-d-etudiants-inscrits-esr-public&q=&rows=100&sort=-rentree&refine.rentree_lib=2018-19" ;
+    initjson = await fetch(url).then(response => response.json());
+    console.log("initjson", initjson);
+    console.log("now can start server");
+
+    //serves static files
+    app.use(express.static('docs'));
+
+    //ROUTES
+
+    // app.get("/:name", function(req, res){
+        // res.send("hello : " + req.params.name );
+    // })
+
+    app.get("/fetch/:region", cors(corsOptions), function(req, res){
+		
+		let data_region = req.params.region;
+        let url = "https://data.enseignementsup-recherche.gouv.fr/api/records/1.0/search/?dataset=fr-esr-sise-effectifs-d-etudiants-inscrits-esr-public&q=&rows=100&sort=-rentree&refine.rentree_lib=2018-19&refine.reg_ins_lib="+ data_region ;
+        fetch(url)
+        .then(res => res.json())
+        .then(json => {
+			let univs = [];
+			let univ = {};
+			json.records.forEach(function(record){
+				univ.id = record.fields.etablissement;
+				univ.rentree = record.fields.rentree;
+				univ.academie = record.fields.aca_etab_lib;
+				univ.commune = record.fields.com_etab_lib;
+				univ.region = record.fields.reg_etab_lib;
+				univ.wiki = record.fields.element_wikidata;
+				univ.departement = record.fields.dep_etab_lib;
+				univ.nometablissement = record.fields.etablissement_lib;
+				univ.typeetablissement = record.fields.etablissement_type_lib;
+				univ.type2 = record.fields.etablissement_type2;
+				univ.uucr = record.fields.uucr_etab_lib;
+				univ.eff = record.fields.effectif_total;
+				
+				univs.push(univ);
+			})
+			console.log(univs);
+			res.send(univs);
+
+            res.format({
+                'text/html': function () {
+                res.send("data fetched look your console");
+                },
+                'application/json': function () {
+                    res.setHeader('Content-disposition', 'attachment; filename=score.json'); //do nothing
+                    res.set('Content-Type', 'application/json');
+                    res.json(json);
+                },
+			})
+        });
+    })
+
+    // app.get("/requestair/shangai", function(req, res){
+        // let url = "https://api.waqi.info/feed/shanghai/?token=demo" ;
+        // https.get(url, (resp) => {
+            // let data = '';
+
+            // // A chunk of data has been recieved.
+            // resp.on('data', (chunk) => {
+                // data += chunk;
+            // });
+            // // The whole response has been received. Print out the result.
+            // resp.on('end', () => {
+                // console.log("requestair", JSON.parse(data));
+                // res.send("data requested look your console");
+            // });
+
+        // }).on("error", (err) => {
+            // console.log("Error: " + err.message);
+            // res.send("nope request didnt work");
+        // });
+    // })
+
+    app.listen(port, function () {
+
+        console.log('Serveur listening on port ' + port);
+    });
+}
+
+initialize();
