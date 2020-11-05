@@ -71,7 +71,7 @@ app.use(express.static('docs'));
     // res.send(records) //renvoie la collection d'universites
 // });
 
-app.get("/univs", cors(corsOptions), function(req, res){
+app.get("/index.html", cors(corsOptions), function(req, res){
     let univs = []; //creation tableau vide
     let url1 = "https://data.enseignementsup-recherche.gouv.fr/api/records/1.0/search/?dataset=fr-esr-sise-effectifs-d-etudiants-inscrits-esr-public&q=&rows=10000&refine.rentree_lib=2018-19" ;
 	//"https://data.enseignementsup-recherche.gouv.fr/api/records/1.0/search/?dataset=fr-esr-sise-effectifs-d-etudiants-inscrits-esr-public&q=&rows=405272&refine.rentree_lib=2018-19"
