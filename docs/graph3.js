@@ -42,14 +42,17 @@ var dataSet = [
 ];
  
 $(document).ready(function() {
-    $('#example').DataTable( {
+    $('#table').DataTable( {
         data: dataSet,
+		language: {url: "French.json"},
         columns: [
-            { title: "Name",data: ".nom" },
-            { title: "Office",data: ".nom" },
-            { title: "Extn.",data: ".nom" },
-            { title: "Start date",data: ".nom" },
-            { title: "Salary",data: ".nom" }
+            { title: "Etablissement",data: ".nom" },
+            { title: "Commune",data: ".nationalite" },
+            { title: "Capacité d'accueil",data: ".nom" },
+            { title: "Effectifs inscrits",data: ".nom" },
+            { title: "Effectifs admis",data: ".nom" },
+			{ title: "Informations complémentaires",data: ".film" }
         ]
     } );
 } );
+
