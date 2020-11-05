@@ -53,9 +53,7 @@ async function initialize()
 	//serves static files
 	app.use(express.static('docs'));
 	
-	app.get("/univs", cors(corsOptions), function(req, res){
-		
-		
+	
 		let univs = [];
 		let csvData = [];
 		fs.createReadStream(myfile)
@@ -64,10 +62,9 @@ async function initialize()
 				//do something with csvrow
 				csvData.push(csvrow);
 			})
-			
-		
-		console.log('je suis la');		
+	
 		let univ = {};
+		let nomEtab = [];
 		csvData.forEach(function(row){
 			univ.id = row[6];
 			univ.rentree = row[0];
@@ -81,20 +78,30 @@ async function initialize()
 			univ.type2 = row[4];
 			univ.uucr = row[66];
 			//univ.eff = csvrow[78];
-			console.log(univ);
-			// var data_filter = csvData.filter( element => element[6] == univ.id);
-			// console.log(data_filter);
-			// data_filter.forEach(function(elt){
-				// //console.log(elt.fields.effectif_total, elt.fields.etablissement);
-				// univ.eff += elt[78];
-				// console.log(univ.eff);
-			// });
+			
+			var data_filter = csvData.filter( element => element[6] == univ.id);
+			data_filter.forEach(function(elt){
+				//console.log(elt.fields.effectif_total, elt.fields.etablissement);
+				univ.eff += elt[78];
+				console.log(univ.eff);
+			});
+			
+			if(nomEtab.includes(univ.id)){
+				return;
+			}else{
+				nomEtab.push(univ.id);
+				univs.push(univ);
+			}
 		})
-		//univs.push(univ);
-		//console.log(univ);
 		
-		
-		//console.log(csvData);
+	
+	
+	
+	console.log("now can call routes");
+	
+	app.get("/univs", cors(corsOptions), function(req, res){
+		console.log('je suis la');	
+		console.log(univs);
 		
 	})
     
