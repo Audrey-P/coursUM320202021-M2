@@ -8,17 +8,18 @@ Elle permet de connaitre les établissements les plus ou moins demandés par rap
 Nous avons utilisé deux APIs pour réaliser cette application :
 
 - Une API "ParcourSup" contenant des données, pour chaque établissement de l'enseignement supérieur français, sur les demandes effectuées par les étudiants via l'application Parcoursup. Nous avons décidé de ne conserver que le nombre total de demandes (toutes fillières confondues) ainsi que le nombre de voeux acceptés comptabilisés pour chaque établissement.
+
 Liste exhaustive des variables conservées lors du fetch :
-"cod_uai": Code unique de chaque établissement, (jointure)
-"session": Année 2019,
-"lien_form_psup": Lien vers les informations liées à l'établissement sur le site de ParcourSup,
-""capa_fin": Capacité de l’établissement par formation (Somme pour chaque établissement)
-"voe_tot": Effectif total des candidats pour une formation (Somme pour chaque établissement)
-"nb_voe_pp": Effectif total des candidats en phase principale (Somme pour chaque établissement)
-"nb_voe_pc": Effectif total des candidats en phase complémentaire (Somme pour chaque établissement)
-"acc_tot": Effectif total des candidats ayant accepté la proposition de l’établissement (admis) (Somme pour chaque établissement)
-"acc_pp": Effectif des admis en phase principale (Somme pour chaque établissement)
-"acc_pc": Effectif des admis en phase complémentaire (Somme pour chaque établissement)
+## "cod_uai": Code unique de chaque établissement, (jointure)
+## "session": Année 2019,
+## "lien_form_psup": Lien vers les informations liées à l'établissement sur le site de ParcourSup,
+## ""capa_fin": Capacité de l’établissement par formation (Somme pour chaque établissement)
+## "voe_tot": Effectif total des candidats pour une formation (Somme pour chaque établissement)
+## "nb_voe_pp": Effectif total des candidats en phase principale (Somme pour chaque établissement)
+## "nb_voe_pc": Effectif total des candidats en phase complémentaire (Somme pour chaque établissement)
+## "acc_tot": Effectif total des candidats ayant accepté la proposition de l’établissement (admis) (Somme pour chaque établissement)
+## "acc_pp": Effectif des admis en phase principale (Somme pour chaque établissement)
+## "acc_pc": Effectif des admis en phase complémentaire (Somme pour chaque établissement)
 
 - Une API "Effectif des établissements du supérieur" contenant des données sur les établissements d'enseignement supérieur en France et notamment le nombre d'élèves inscits. Nous avons conservé de cette API les informations décrivant les établissements (nom, region d'implantation,etc. )
 Liste exhaustive des variables concervées lors du fetch :
