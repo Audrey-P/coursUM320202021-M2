@@ -14,7 +14,11 @@ var https = require('https');
 var cors = require('cors');
 var readline = require('readline');
 var stream = require('stream');
-const myfile = "dataFile.json";
+var JSONStream = require('JSONStream');
+var es = require('event-stream');
+var parse = require('csv-parse');
+const myfile = "dataFile.csv";
+const myfile2 = "dataFile2.csv";
 
 
 var corsOptions = {
@@ -29,13 +33,12 @@ var corsOptions = {
 
 //init some date fetched somewhere
 //let initjson = {};
-let initjson2 = {};
 
 async function initialize()
 {
-	let url1 = "https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-sise-effectifs-d-etudiants-inscrits-esr-public/download/?format=json&disjunctive.rentree_lib=true&refine.rentree_lib=2018-19&timezone=Europe/Berlin&lang=fr" ;
-	//initjson = await fetch(url1).then(response => response.json());
-    //console.log("initjson", initjson);
+	let url1 = "https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-sise-effectifs-d-etudiants-inscrits-esr-public/download/?format=csv&disjunctive.rentree_lib=true&refine.rentree_lib=2018-19&timezone=Europe/Berlin&lang=fr&use_labels_for_header=true&csv_separator=%3B" ;
+	let url2 = "https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-parcoursup/download/?format=csv&timezone=Europe/Berlin&lang=fr&use_labels_for_header=true&csv_separator=%3B";
+
 	
 	async function downloadFile(url, outputPath) {
 	  return fetch(url)
@@ -43,23 +46,56 @@ async function initialize()
 		  .then(x => writeFilePromise(outputPath, Buffer.from(x)));
 	}
 	//await downloadFile(url1, myfile);
+	//await downloadFile(url2, myfile2);
 
     console.log("now can start server");
-	// let url2 = "https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-parcoursup/download/?format=json&timezone=Europe/Berlin&lang=fr;";
-	// initjson2 = await fetch(url2).then(response => response.json());
-    // //console.log("initjson2", initjson2);
-    // console.log("now can start server (2)");
 	
 	//serves static files
 	app.use(express.static('docs'));
 	
 	app.get("/univs", cors(corsOptions), function(req, res){
-		var instream = fs.createReadStream(myfile);
-		var outstream = new stream;
-		var rl = readline.createInterface(instream, outstream);
-		rl.on('line', function(line) {
-		  console.log(line);
-		});
+		
+		
+		let univs = [];
+		let csvData = [];
+		fs.createReadStream(myfile)
+			.pipe(parse({delimiter: ';'}))
+			.on('data', function(csvrow) {
+				//do something with csvrow
+				csvData.push(csvrow);
+			})
+			
+		
+		console.log('je suis la');		
+		let univ = {};
+		csvData.forEach(function(row){
+			univ.id = row[6];
+			univ.rentree = row[0];
+			univ.academie = row[58];
+			univ.commune = row[52];
+			univ.region = row[60];
+			univ.wiki = row[9];
+			univ.departement = row[56];
+			univ.nometablissement = row[7];
+			univ.typeetablissement = row[2];
+			univ.type2 = row[4];
+			univ.uucr = row[66];
+			//univ.eff = csvrow[78];
+			console.log(univ);
+			// var data_filter = csvData.filter( element => element[6] == univ.id);
+			// console.log(data_filter);
+			// data_filter.forEach(function(elt){
+				// //console.log(elt.fields.effectif_total, elt.fields.etablissement);
+				// univ.eff += elt[78];
+				// console.log(univ.eff);
+			// });
+		})
+		//univs.push(univ);
+		//console.log(univ);
+		
+		
+		//console.log(csvData);
+		
 	})
     
 	app.listen(port, function () {
