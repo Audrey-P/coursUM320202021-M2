@@ -31,7 +31,7 @@ async function initialize()
 
     //ROUTES
 
-    //info about chosen region
+
     app.get("/fetch/:region", cors(corsOptions), function(req, res){
 		
 		let data_region = req.params.region;
@@ -69,13 +69,16 @@ async function initialize()
                     res.set('Content-Type', 'application/json');
                     res.json(json);
                 },
+
 			      })
         });
     })
 
     app.listen(port, function () {
+
         console.log('Serveur listening on port ' + port);
     });
 }
 
 initialize();
+
