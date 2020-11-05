@@ -16,7 +16,6 @@ var corsOptions = {
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
   }
 
-
 //init some date fetched somewhere
 let initjson = {};
 
@@ -70,12 +69,11 @@ async function initialize()
                     res.set('Content-Type', 'application/json');
                     res.json(json);
                 },
-			})
+			      })
         });
     })
 
     app.listen(port, function () {
-
         console.log('Serveur listening on port ' + port);
     });
 }

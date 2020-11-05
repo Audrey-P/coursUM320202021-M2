@@ -1,0 +1,58 @@
+/* Header */
+
+header {
+	padding: auto;
+	font-weight: bold;
+	letter-spacing: 0.15em;
+	margin-bottom:1em ;
+	font-size:1.3em;
+	display: block;
+	background-color: #BBDEEA;
+}
+
+	header > * {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	header .symbol {
+		margin-right: 0.8em;
+	}
+
+		header .symbol img {
+			display: block;
+			width: 8em;
+			height: 8em;
+		}
+
+	#title {
+		line-height:0.6em;
+	}
+
+
+
+/* SECTIONS */
+section {
+	margin: 2em 0 2em 0;
+	color: #3CA0C1;
+	display: block;
+}
+
+	#graphiques > * {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	
+	.vizu {
+		background-color: #BBDEEA;
+		width: 30em;
+		height: 30em;
+		margin: 2em 5em 2em 5em;
+	}
+
+	.title_graph {
+		color: black;
+	}
+
+
+	

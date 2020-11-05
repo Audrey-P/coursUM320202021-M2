@@ -1,21 +1,113 @@
-<html>
-    <head>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<script type="text/javascript" src="projet.js"></script>
-    </head>
+<!doctype html>
 
-    <body>
-        <h1>exemple</h1>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>Choisis ton orientation</title>
+		<!--<script type="text/javascript" src="index.js"></script>  ************************** -->
+		<link type="text/css" rel="stylesheet" href="style.css">
+		<script src="/d3/d3.js"></script> 
+		<script src="https://code.jquery.com/jquery-3.5.1.js"></script> 
+		<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script> 
+		<link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+
+		<script type="text/javascript" src="graph1.js"></script>
+		<script type="text/javascript" src="graph2.js"></script>
+		<script type="text/javascript" src="graph3.js"></script>
+		<script type="text/javascript" src="test.js"></script>
+    <script type="text/javascript" src="projet.js"></script>
+		<!-- <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css" type="text/css" />	  -->	
+		<!-- <script src="bootstrap/dist/js/bootstrap.min.js"></script>  -->
+	</head>
+	
+	
+	
+	<body  onload ="draw(); draw2()">
+	
+	<!-- Header -->
+		<header>
+			
+			<span class="symbol">   <img src="images/etudes_icon.png" />    </span>
+			<span id="title">
+				<h1>Choisis ton orientation</h1>
+				<p>Etudiant ou futur étudiant, tu veux savoir où tu as le plus de chances d'être reçu ?</p>
+				<p>Ce site est là pour te guider dans ton choix d'études supérieures</p>
+			</span>
+			
+		</header>
+
+
+		<section id="section_principale">
 		
-		<input type="text" id="prenom"/>
-		<button class="btn btn-primary submit g-recaptcha" id="btn-submit-mmform" onclick="regionInfo()">
-			<span class="txt">Envoyer</span>
-	    </button>
+	
+		<h1>Dans quelle région souhaiterais-tu étudier ?</h1>
+		
+	<SELECT name="region" id="inRegion"> 
+		<OPTION VALUE="AuRA">AuRA</OPTION> 
+		<OPTION VALUE="BFC">Bourgogne-Franche-Comté</OPTION> 
+		<OPTION VALUE="Bretagne">Bretagne</OPTION> 
+		<OPTION VALUE="CentreValLoire">Centre-Val de Loire</OPTION> 
+		<OPTION VALUE="Corse">Corse</OPTION> 
+		<OPTION VALUE="Etranger">Etranger</OPTION> 
+		<OPTION VALUE="GrandEst">Grand Est</OPTION> 
+		<OPTION VALUE="Guadeloupe">Guadeloupe</OPTION> 
+		<OPTION VALUE="Guyane">Guyane</OPTION> 
+		<OPTION VALUE="hautsdefrance">Hauts-de-France</OPTION> 
+		<OPTION VALUE="iledefrance">Ile-de-France</OPTION> 
+		<OPTION VALUE="Reunion">La Réunion</OPTION> 
+		<OPTION VALUE="Martinique">Martinique</OPTION> 
+		<OPTION VALUE="Mayotte">Mayotte</OPTION> 
+		<OPTION VALUE="Normandie">Normandie</OPTION> 
+		<OPTION VALUE="Aquitaine">Nouvelle-Aquitaine</OPTION> 
+		<OPTION VALUE="Occitanie">Occitanie</OPTION> 
+		<OPTION VALUE="Loire">Pays de la Loire</OPTION> 
+		<OPTION VALUE="Polynesie">Polynésie Française</OPTION>
+		<OPTION VALUE="PACA">PACA</OPTION> 
+	</SELECT>
+		
+		<button type="button" onclick="regionInfo()">Go!</button>
+
 		
 		<div id="divJson"></div>
-    </body>
 
-    <script>
+		</section>
 
-    </script>
+
+		<section id="graphiques">
+		
+			<div class="vizu">
+				<p class="title_graph">Top 10 des etablissements les plus demandés</p>
+				
+								<!--*************************-->
+								<svg id="svg" width="470" height="415"> 
+								</svg>	
+								<!--*************************-->
+			</div>				
+			
+			<div class="vizu"></article>
+				<p class="title_graph">Titre du graph #2</p>
+
+								<svg id="svg1" width="470" height="400"> 
+								</svg>	
+
+			</div>	
+
+			<div></article>
+				<p class="title_graph">Titre du graph #3</p>
+					<table id="table" class="display" width="100%"></table>	
+
+			</div>	
+					
+		
+		</section>
+
+
+
+
+		</section>
+
+
+
+		
+	</body>
 </html>
