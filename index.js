@@ -3,7 +3,7 @@
 var express = require('express');
 var app = express();
 
-const port = process.env.PORT || 3001 ;
+const port = process.env.PORT || 3000 ;
 
 var fetch = require('node-fetch');
 var https = require('https');
@@ -51,6 +51,9 @@ async function initialize()
                     res.setHeader('Content-disposition', 'attachment; filename=score.json'); //do nothing
                     res.set('Content-Type', 'application/json');
                     res.json(json);
+                },
+                'application/rdf+xml': function () {
+                    res.send("gonna send RDF XML");
                 }
                 })
         });

@@ -8,12 +8,13 @@ Vous fournirez dans le README de votre projet :
 Vous fournirez également votre API de sortie :
 * quelles URL proposées par votre serveur permettent de récupérer quelles données
 * les données devront être accessibles dans au moins deux formats ( JSON et RDF ) et votre API devra respecter les principes de la négoctiation de contenu server-driven
-Il faudra que vos données soient bien ouvertes c'est à dire format explicite, données complètes, et facilement accessiibles ( politique CORS permissive ).
+Il faudra que vos données soient bien ouvertes c'est à dire format explicite, données complètes, et facilement accessibles ( politique CORS permissive ).
+Vous proposerez un vocabulaire RDF accessible également pour spécifier votre format de données.
 
 
 Vous proposerez une interface cliente ( codes HTML JS client ) hébergée en githubpage consommatrice de votre API.
 
-Vous serez évalués sur : la qualité du code,la pertinence du jeu de données, la pertinence des choix de sources de données, la pertinence de la solution de jointure entre les jeux de données, votre bon usage de github et des pull request.
+Vous serez évalués sur : la qualité du code,la pertinence du jeu de données, la pertinence des choix de sources de données, la pertinence de la solution de jointure entre les jeux de données, votre bon usage de github et des pull request. Bien sur, il faut que le projet fonctionne au moment de l'évaluation. Vous ferez une démo lors de la soutenance.
 
 
 # OpenData
