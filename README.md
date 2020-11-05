@@ -21,6 +21,7 @@ Liste exhaustive des variables conservées lors du fetch :
 ##### - "acc_pp": Effectif des admis en phase principale (Somme pour chaque établissement)
 ##### - "acc_pc": Effectif des admis en phase complémentaire (Somme pour chaque établissement)
 
+
 - Une API "Effectif des établissements du supérieur" contenant des données sur les établissements d'enseignement supérieur en France et notamment le nombre d'élèves inscits. Nous avons conservé de cette API les informations décrivant les établissements (nom, region d'implantation,etc. )
 
 Liste exhaustive des variables concervées lors du fetch :
