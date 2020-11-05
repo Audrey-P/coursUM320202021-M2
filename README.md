@@ -2,7 +2,7 @@
 
 # Descriptif du projet
 L'application "choisis ton orientation" permet d'effectuer des recherches sur les établissements d'enseignement supérieur dans une région donnée.  
-Elle permet de connaitre les établissements les plus ou moins demandés par rapport aux effectifs finalement accueillis. Cela permet notamment aux étudiants d'identifier les universitées dans lesquelles la demande est peu importante et/ou le taux de remplissage faible de façon à les orienter vers ces établissements dans lesquels l'admission sera potentiellement plus facile.
+Elle permet de connaitre les établissements les plus ou moins demandés par rapport aux effectifs finalement accueillis. Cela permet notamment aux étudiants d'identifier les établissements dans lesquels la demande est peu importante et/ou le taux de remplissage faible de façon à les orienter vers ceux dans lesquels l'admission sera potentiellement plus facile.
 
 # API utilisées
 Nous avons utilisé deux APIs pour réaliser cette application :
