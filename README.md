@@ -1,3 +1,54 @@
+# Choisis ton orientation
+
+# Descriptif du projet
+L'application "choisi ton orientation" permet d'effectuer des recherches sur les établissements d'enseignement supérieur dans une région donnée.  
+Elle permet de connaitre les établissements les plus ou moins demandés par rapport aux effectifs accueillis. Cela permet nottament aux étudiants d'identifier les universitées dans lesquelles la demande est peu importante et/ou le taux de remplissage faible de façon à les orienter vers ces établissements dans lesquels l'admission sera potentiellement plus facile.
+
+# API utilisées
+Nous avons utilisé deux APIs pour réaliser cette application :
+
+- Une API "ParcourSup" contenant des données, pour chaque établissement universitaire de France, sur les demandes effectuées par les étudiants via l'application Parcoursup. Nous avons décider de ne conserver que le nombre total de demandes (toutes fillières confondues) ainsi que le nombre de voeux acceptés comptabilisés pour chaque établissement.
+Liste exhaustive des variables concervées lors du fetch :
+"cod_uai":"0021964Z",
+"session":"2019",
+"acad_mies":"Amiens",
+"region_etab_aff":"Hauts-de-France",
+"lien_form_psup":"https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=2099&g_ta_cod=2099",
+"dep_lib":"Aisne",
+""capa_fin":112, Capacité de l’établissement par formation (Somme pour chaque établissement)
+"voe_tot":782, Effectif total des candidats pour une formation (Somme pour chaque établissement)
+"nb_voe_pp":465, Effectif total des candidats en phase principale (Somme pour chaque établissement)
+"nb_voe_pc":317, Effectif total des candidats en phase complémentaire (Somme pour chaque établissement)
+"acc_tot":98, Effectif total des candidats ayant accepté la proposition de l’établissement (admis) (Somme pour chaque établissement)
+"acc_pp":77, Effectif des admis en phase principale (Somme pour chaque établissement)
+"acc_pc":19, Effectif des admis en phase complémentaire (Somme pour chaque établissement)
+
+- Une API "Effectif des établissements du supérieurs" contenant des données sur les établissements d'enseignement supérieur en France et nottament le nombre d'élèves inscits. Nous avons concerver de cette API les informations décrivant les établissements (nom, region d'implantation, )
+Liste exhaustive des variables concervées lors du fetch :
+"etablissement":"0941111X", (jointure)
+"rentree":"2013",
+"aca_etab_lib":"Créteil",
+"com_etab_lib":"Créteil",
+"reg_etab_lib":"Île-de-France",
+"element_wikidata":"https://www.wikidata.org/entity/Q980688",
+"dep_etab_lib":"Val-de-Marne",
+"etablissement_lib":"Université Paris-Est Créteil",
+"etablissement_type_lib":"Universités pluridisciplinaires avec santé",
+"etablissement_type2":"Université",
+"uucr_etab_lib":"Paris",
+"effectif_total":6,  (Somme pour chaque établissement)
+
+L'API Parcoursup contenant uniquement des données sur la session 2019, nous avons décider de ne concerver que l'année scolaire 2018-2019 de l'API sur les effectifs.
+
+Les données des deux bases de données sont reliées entre elles via le CODE établissement contenu dans chacune des deux base. Le fichier ainsi obtenu contient une ligne par établissement contenant l'ensemble des informations listées ci-dessus ainsi qu'une variable calculée à partir de l'effectif (API Effectif) et du nombre de demandes (API Parcoursup). 
+
+# Requêtes
+Nous avons deux différentes routs :
+GET/univs renvoie la collection des universités en France
+GET/user/:region renvoie des informations sur les universités de la région selectionnée
+
+_________________________________________________________
+
 # coursUM320202021-M2
 
 # Descriptif du projet
