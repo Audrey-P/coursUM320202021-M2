@@ -43,8 +43,8 @@ Les données des deux bases de données sont reliées entre elles via le CODE é
 
 # Requêtes
 Nous avons deux différentes routes :
-GET/univs renvoie la collection des universités en France
-GET/user/:region renvoie des informations sur les universités de la région selectionnée
+##### - GET/univs renvoie la collection des universités en France
+##### - GET/user/:region renvoie des informations sur les universités de la région selectionnée
 
 _________________________________________________________
 
