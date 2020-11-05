@@ -10,8 +10,8 @@ Nous avons utilisé deux APIs pour réaliser cette application :
 - Une API "ParcourSup" contenant des données, pour chaque établissement de l'enseignement supérieur français, sur les demandes effectuées par les étudiants via l'application Parcoursup. Nous avons décidé de ne conserver que le nombre total de demandes (toutes fillières confondues) ainsi que le nombre de voeux acceptés comptabilisés pour chaque établissement.
 
 Liste exhaustive des variables conservées lors du fetch :
-##### - "cod_uai": Code unique de chaque établissement, (jointure)
-##### - "session": Année 2019,
+- "cod_uai": Code unique de chaque établissement, (jointure)
+- "session": Année 2019,
 ##### - "lien_form_psup": Lien vers les informations liées à l'établissement sur le site de ParcourSup,
 ##### - "capa_fin": Capacité de l’établissement par formation (Somme pour chaque établissement)
 ##### - "voe_tot": Effectif total des candidats pour une formation (Somme pour chaque établissement)
