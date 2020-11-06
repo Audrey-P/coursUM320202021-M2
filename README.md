@@ -11,6 +11,7 @@ Vous fournirez également votre API de sortie :
 Il faudra que vos données soient bien ouvertes c'est à dire format explicite, données complètes, et facilement accessibles ( politique CORS permissive ).
 Vous proposerez un vocabulaire RDF accessible également pour spécifier votre format de données.
 
+Vous fournirez un diagramme de Classe servant de documentation pour vos exports json et un diagramme entités-relations servant de documentation pour vos exports XML/RDF.
 
 Vous proposerez une interface cliente ( codes HTML JS client ) hébergée en githubpage consommatrice de votre API.
 
