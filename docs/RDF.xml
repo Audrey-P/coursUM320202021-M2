@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+
+<rdf:RDF
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+><!--Ajouter le lien vers notre vocabulaire ???-->
+
+<rdfs:Class rdf:about="mondomain/rdfvocabulary#Region"> <!--Heroku lien (mais en mode variable ?)-->
+<rdfs:label xml:lang="fr">Region</rdfs:label>
+<rdfs:comment xml:lang="fr">Une region de France</rdfs:comment>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="mondomain/rdfvocabulary#Etablissement">
+<rdfs:label xml:lang="fr">Etablissement</rdfs:label>
+<rdfs:comment xml:lang="fr">Une entite pour laquelle on dispose de diverses informations</rdfs:comment>
+</rdfs:Class>
+
+<!--Region-->
+
+<rdf:Property rdf:about="mondomain/rdfvocabulary#hasRegion" rdfs:label="hasRegion" 
+rdfs:comment="La region">
+      <rdfs:domain rdf:resource="#Etablissement"/>
+    <rdfs:range rdf:resource="mondomain/rdfvocabulary#Region"/>
+    <rdfs:isDefinedBy rdf:resource="mondomain/rdfvocabulary"/>
+ </rdf:Property>
+
+<rdf:Property rdf:about="mondomain/rdfvocabulary#hasCodeR" rdfs:label="hasCodeR" 
+rdfs:comment="Le code region de la nomenclature fr">
+      <rdfs:domain rdf:resource="#Region"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>       
+    <rdfs:isDefinedBy rdf:resource="mondomain/rdfvocabulary"/>
+ </rdf:Property>
+
+<rdf:Property rdf:about="mondomain/rdfvocabulary#hasLibR" rdfs:label="hasLibR" 
+rdfs:comment="Le nom de la region fr">
+      <rdfs:domain rdf:resource="#Region"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>       
+    <rdfs:isDefinedBy rdf:resource="mondomain/rdfvocabulary"/>
+ </rdf:Property>
+
+<!--Etablissement-->
+
+<rdf:Property rdf:about="mondomain/rdfvocabulary#hasEtablissement" rdfs:label="hasEtablissement" 
+rdfs:comment="L etablissement">
+      <rdfs:domain rdf:resource="#Region"/>
+    <rdfs:range rdf:resource="mondomain/rdfvocabulary#Etablissement"/>
+    <rdfs:isDefinedBy rdf:resource="mondomain/rdfvocabulary"/>
+ </rdf:Property>
+
+<rdf:Property rdf:about="mondomain/rdfvocabulary#hasID" rdfs:label="hasID" 
+rdfs:comment="L identifiant de l etablissement">
+      <rdfs:domain rdf:resource="#Etablissement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:isDefinedBy rdf:resource="mondomain/rdfvocabulary"/>
+ </rdf:Property>
+
+<rdf:Property rdf:about="mondomain/rdfvocabulary#hasCom" rdfs:label="hasCom" 
+rdfs:comment="Commune d implantation de l etablissement">
+      <rdfs:domain rdf:resource="#Etablissement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:isDefinedBy rdf:resource="mondomain/rdfvocabulary"/>
+ </rdf:Property>
+
+<rdf:Property rdf:about="mondomain/rdfvocabulary#hasName" rdfs:label="hasName" 
+rdfs:comment="Nom de l etablissement">
+      <rdfs:domain rdf:resource="#Etablissement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:isDefinedBy rdf:resource="mondomain/rdfvocabulary"/>
+ </rdf:Property>
+
+<rdf:Property rdf:about="mondomain/rdfvocabulary#hasType" rdfs:label="hasType" 
+rdfs:comment="Type d etablissement">
+      <rdfs:domain rdf:resource="#Etablissement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:isDefinedBy rdf:resource="mondomain/rdfvocabulary"/>
+ </rdf:Property>
+
+<rdf:Property rdf:about="mondomain/rdfvocabulary#hasLienW" rdfs:label="hasLienW" 
+rdfs:comment="Lien wikipedia de l etablissement">
+      <rdfs:domain rdf:resource="#Etablissement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:isDefinedBy rdf:resource="mondomain/rdfvocabulary"/>
+ </rdf:Property>
+
+<rdf:Property rdf:about="mondomain/rdfvocabulary#hasEffInsc" rdfs:label="hasEffInsc" 
+rdfs:comment="Effectif des personnes inscrites dans l etablissement">
+      <rdfs:domain rdf:resource="#Etablissement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:isDefinedBy rdf:resource="mondomain/rdfvocabulary"/>
+ </rdf:Property>
+
+<rdf:Property rdf:about="mondomain/rdfvocabulary#hasEffAdm" rdfs:label="hasEffAdm" 
+rdfs:comment="Effectif des personnes admises dans l etablissement">
+      <rdfs:domain rdf:resource="#Etablissement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:isDefinedBy rdf:resource="mondomain/rdfvocabulary"/>
+ </rdf:Property>
+
+<rdf:Property rdf:about="mondomain/rdfvocabulary#hasEffCand" rdfs:label="hasEffCand" 
+rdfs:comment="Effectif des candidatures reçues par l etablissement">
+      <rdfs:domain rdf:resource="#Etablissement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:isDefinedBy rdf:resource="mondomain/rdfvocabulary"/>
+ </rdf:Property>
+
+<rdf:Property rdf:about="mondomain/rdfvocabulary#hasEffCapa" rdfs:label="hasEffCapa" 
+rdfs:comment="Capacite totale de l etablissement">
+      <rdfs:domain rdf:resource="#Etablissement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:isDefinedBy rdf:resource="mondomain/rdfvocabulary"/>
+ </rdf:Property>
+
+</rdf:RDF>
