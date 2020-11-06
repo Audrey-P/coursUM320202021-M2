@@ -1,5 +1,7 @@
 function regionInfo(){
+
 	var sent_region = document.getElementById('inRegion').value;
+
 	console.log(sent_region);
 	
 	let url="/fetch/"+sent_region;
@@ -10,3 +12,4 @@ function regionInfo(){
 	
 	
 }
+

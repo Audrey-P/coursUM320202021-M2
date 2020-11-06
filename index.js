@@ -16,7 +16,6 @@ var corsOptions = {
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
   }
 
-
 //init some date fetched somewhere
 let initjson = {};
 
@@ -32,9 +31,6 @@ async function initialize()
 
     //ROUTES
 
-    // app.get("/:name", function(req, res){
-        // res.send("hello : " + req.params.name );
-    // })
 
     app.get("/fetch/:region", cors(corsOptions), function(req, res){
 		
@@ -73,30 +69,10 @@ async function initialize()
                     res.set('Content-Type', 'application/json');
                     res.json(json);
                 },
-			})
+
+			      })
         });
     })
-
-    // app.get("/requestair/shangai", function(req, res){
-        // let url = "https://api.waqi.info/feed/shanghai/?token=demo" ;
-        // https.get(url, (resp) => {
-            // let data = '';
-
-            // // A chunk of data has been recieved.
-            // resp.on('data', (chunk) => {
-                // data += chunk;
-            // });
-            // // The whole response has been received. Print out the result.
-            // resp.on('end', () => {
-                // console.log("requestair", JSON.parse(data));
-                // res.send("data requested look your console");
-            // });
-
-        // }).on("error", (err) => {
-            // console.log("Error: " + err.message);
-            // res.send("nope request didnt work");
-        // });
-    // })
 
     app.listen(port, function () {
 
@@ -105,3 +81,4 @@ async function initialize()
 }
 
 initialize();
+
