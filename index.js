@@ -82,9 +82,9 @@ app.get("/rdfvocabulary", cors(corsOptions), function(req, res){
     let xml = fs.readFileSync(filePath);
 
     //res.setHeader('Content-disposition', 'attachment; filename=RDF.xml');
-    res.set('Content-Type', 'application/xml');
+    //res.set('Content-Type', 'application/xml');
 
-    res.send(xml);
+    res.send('OKKKKKK');
     console.log(xml);
 });
 
