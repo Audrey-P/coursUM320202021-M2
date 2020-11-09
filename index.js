@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000 ;
 
 var fetch = require('node-fetch');
 var https = require('https');
-
+var fs = require("fs"); // Pour lire fichier xml *******
 
 var cors = require('cors');
 
@@ -31,7 +31,7 @@ async function initialize()
 
     //ROUTES
 
-
+/*
     app.get("/fetch/:region", cors(corsOptions), function(req, res){
 		
 		let data_region = req.params.region;
@@ -73,6 +73,21 @@ async function initialize()
 			      })
         });
     })
+*/
+
+app.get("/rdfvocabulary", cors(corsOptions), function(req, res){
+    res.setHeader('Access-Control-Allow-Origin', corsOrigins);
+
+    //let filePath = path.join('docs', 'rdfvocabulary.xml');
+
+    let xml = fs.readFileSync('docs/RDF.xml');
+
+    res.setHeader('Content-disposition', 'attachment; filename=RDF.xml');
+    res.set('Content-Type', 'application/xml');
+
+    res.send(xml);
+})
+
 
     app.listen(port, function () {
 
