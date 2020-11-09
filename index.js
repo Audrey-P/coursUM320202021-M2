@@ -77,16 +77,16 @@ async function initialize()
 
 app.get("/rdfvocabulary", cors(corsOptions), function(req, res){
     //res.setHeader('Access-Control-Allow-Origin', corsOrigins);
-    //let filePath = path.join('docs', 'rdfvocabulary.xml');
+    let filePath = path.join('docs', 'RDF.xml');
 
-    let xml = fs.readFileSync('docs/RDF.xml');
+    let xml = fs.readFileSync(filePath);
 
     //res.setHeader('Content-disposition', 'attachment; filename=RDF.xml');
     res.set('Content-Type', 'application/xml');
 
-    //res.send(xml);
-    console.log(xml)
-})
+    res.send(xml);
+    console.log(xml);
+});
 
 
     app.listen(port, function () {
