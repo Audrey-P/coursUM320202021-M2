@@ -26,10 +26,19 @@ function draw2(){
 				gAxisY.attr("transform", "translate(50,25)");
 				
 				
+				
+				
+				console.log(document.getElementById('univ').required = false);
+				console.log(document.getElementById('univ').parentNode.style.display = "none");
+				
+				
+				
+				
 				//Création de l'axe X
 				
 				var scaleX = d3.scaleLinear();
-				scaleX.domain([0,records1["datasetid"]]); //à changer
+				//scaleX.domain([0,document.getElementById('univ')]); //à changer
+				//console.log(scaleX.domain([0,univ.wiki]));
 				scaleX.range([0,400]);//à changer
 					
 				var axisX = d3.axisBottom(scaleX);
@@ -39,35 +48,35 @@ function draw2(){
 
 
 				// Color for dots
-                reg = []
-                for(i=1;i<data.length;i++){
-                    if (reg.includes(data[i].region) == false){
-                            reg.push(data[i].region)
-                    }
-                }
+                //reg = []
+                //for(i=1;i<data.length;i++){
+                //    if (reg.includes(data[i].region) == false){
+                //            reg.push(data[i].region)
+                //    }
+                //}
 
                 // Add a scale for bubble size
-                var z = d3.scaleLinear()
-                    .domain([minValueNat(data,"population_en_millions"),maxValueNat(data,"population_en_millions")])
-                    .range([ 3, 10]);
+               // var z = d3.scaleLinear()
+                //    .domain([minValueNat(data,"population_en_millions"),maxValueNat(data,"population_en_millions")])
+                //    .range([ 3, 10]);
                 //Add a scale for dots color 
-                var color = d3.scaleOrdinal()
-                    .domain(reg)
-                    .range([ "#FF0000", "#DBA901", "#298A08","#0101DF","#FFFF00"])
-                var c10 = d3.scaleOrdinal(d3.schemeCategory10);
+                //var color = d3.scaleOrdinal()
+                //    .domain(reg)
+                //    .range([ "#FF0000", "#DBA901", "#298A08","#0101DF","#FFFF00"])
+                //var c10 = d3.scaleOrdinal(d3.schemeCategory10);
 
                 // Dots
-                var circle = [];
-                for(i=0;i<data.length;i++){
-                    circle[i]=gContainer.append("circle");
-                    circle[i].data(data[i]);
-                    circle[i].attr("class", "point");
-                    circle[i].attr("cx", scaleX(data[i].natalite) );
-                    circle[i].attr("cy", scaleY(data[i].mortalite));
-                    circle[i].attr("r", z(data[i].population_en_millions));
-                    circle[i].attr("transform","translate(20,20)");
-                    circle[i].style("fill", c10(data[i].region));
-                }
+                //var circle = [];
+                //for(i=0;i<data.length;i++){
+                //    circle[i]=gContainer.append("circle");
+                 //   circle[i].data(data[i]);
+                //    circle[i].attr("class", "point");
+                //    circle[i].attr("cx", scaleX(data[i].natalite) );
+                //    circle[i].attr("cy", scaleY(data[i].mortalite));
+                 //   circle[i].attr("r", z(data[i].population_en_millions));
+                 //   circle[i].attr("transform","translate(20,20)");
+                 //   circle[i].style("fill", c10(data[i].region));
+                //}
 
 			//}
 				

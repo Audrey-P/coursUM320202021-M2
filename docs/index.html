@@ -15,16 +15,14 @@
 		<script type="text/javascript" src="graph2.js"></script>
 		<script type="text/javascript" src="graph3.js"></script>
 		<script type="text/javascript" src="test.js"></script>
-
 		<script type="text/javascript" src="functions.js"></script>
+		
 
-		<!-- <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css" type="text/css" />	  -->	
-		<!-- <script src="bootstrap/dist/js/bootstrap.min.js"></script>  -->
 	</head>
 	
 	
 	
-	<body  onload ="draw() ; draw2()">
+	<body  onload ="draw();draw2()">
 	
 	<!-- Header -->
 		<header>
@@ -43,8 +41,10 @@
 		
 	
 		<h1>Dans quelle région souhaiterais-tu étudier ?</h1>
-		
+	
+	<div id ='select'>	
 	<SELECT name="region" id="inRegion"> 
+		<OPTION id ="op" VALUE="none">Sélectionne la région</OPTION> 
 		<OPTION VALUE="AuRA">AuRA</OPTION> 
 		<OPTION VALUE="BFC">Bourgogne-Franche-Comté</OPTION> 
 		<OPTION VALUE="Bretagne">Bretagne</OPTION> 
@@ -66,52 +66,35 @@
 		<OPTION VALUE="Polynesie">Polynésie Française</OPTION>
 		<OPTION VALUE="PACA">PACA</OPTION> 
 	</SELECT>
-		
-		<button type="button" onclick="regionInfo()">Go!</button>
-
-
-		
-		<div id="divJson"></div>
-
-
+		<button type="button" onclick="regionInfo()">Ok!</button></div>
+		<div id = "export">
+			<input type="image" id="img1" src="images/json1.png" width='50'>
+			<input type="image" src="images/xml.png" width='67'>
+		</div>
 		</section>
 
 
-		<section id="graphiques">
 		
-			<div class="vizu">
-				<p class="title_graph">Top 10 des etablissements les plus demandés</p>
-				
-								<!--*************************-->
-								<svg id="svg" width="470" height="415"> 
-								</svg>	
-								<!--*************************-->
+		<div id="graphiques"  >
+			<div id="vizu1" >
+				<p>Top 10 des etablissements les plus demandés</p>
+				<!--*************************-->
+					<svg id="svg" width="470" height="415"></svg>	
+				<!--*************************-->
 			</div>				
-			
-			<div class="vizu"></article>
-				<p class="title_graph">Titre du graph #2</p>
 
-								<svg id="svg1" width="470" height="400"> 
-								</svg>	
-
-			</div>	
-
-			<div></article>
-				<p class="title_graph"><strong>Informations détaillées sur l'ensemble des établissements de la région :</strong></p>
-					<table id="table" class="display" width="100%"></table>	
-
-			</div>	
-					
+			<div id="vizu2">
+				<p>Titre du graph #2</p>
+				<svg id="svg1" width="470" height="415"> </svg>	
+			</div>		
+		</div>
 		
-		</section>
-
-
-
-
-		</section>
-
-
-
+		<div id="test">	
+			<div id="graph3">
+				<p id="title_graph">Titre du graph #3</p>
+				<table id="table" class="display"></table>		
+			</div>	
+		</div>
 		
 	</body>
 </html>
