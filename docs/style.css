@@ -7,29 +7,52 @@ header {
 	margin-bottom:1em ;
 	font-size:1.3em;
 	display: block;
-	background-color: #BBDEEA;
+	background-color: #abe9cd;
+	background-image: linear-gradient(315deg, #abe9cd 0%, #3eadcf 74%);
+	/*background-color: #b1ade2;
+background-image: linear-gradient(315deg, #b1ade2 0%, #7ddff8 74%);
+background-color: #e4eee9;
+background-image: linear-gradient(315deg, #e4eee9 0%, #93a5ce 74%);
+background-color: #fdf86d;
+background-image: linear-gradient(315deg, #fdf86d 0%, #bddcf1 74%);
+background-color: #ffffff;
+background-image: linear-gradient(315deg, #ffffff 0%, #5899e2 74%);
+background-color: #44b09e;
+background-image: linear-gradient(315deg, #44b09e 0%, #e0d2c7 74%);*/
 }
 
-	header > * {
-		display: inline-block;
-		vertical-align: middle;
-	}
+header > * {
+	display: inline-block;
+	vertical-align: middle;
+}
 
-	header .symbol {
-		margin-right: 0.8em;
-	}
+header .symbol {
+	margin-right: 0.8em;
+}
 
-		header .symbol img {
-			display: block;
-			width: 8em;
-			height: 8em;
-		}
+header .symbol img {
+	display: block;
+	width: 8em;
+	height: 8em;
+}
 
-	#title {
-		line-height:0.6em;
-	}
+#title {
+	line-height:0.6em;
+}
 
 
+
+h1{
+	text-align: center;
+}
+
+#op{
+	font-weight: bold;
+}
+
+#select {
+	text-align: center;
+}
 
 /* SECTIONS */
 section {
@@ -38,21 +61,62 @@ section {
 	display: block;
 }
 
-	#graphiques > * {
-		display: inline-block;
-		vertical-align: middle;
-	}
+#export {
+	float: right;
+}
+
+#img1 {
+	margin-right:10px;
+}
+
+#graphiques  {
+	/*display: inline-block;
+	text-align:justify;
+	margin: auto;
+	/*text-align:center;
+	/*vertical-align:middle;
+	/*width: 90%;
+	/*margin: auto;
+	/*width: 100%;
+	padding: 30px;*/
 	
-	.vizu {
-		background-color: #BBDEEA;
-		width: 30em;
-		height: 30em;
-		margin: 2em 5em 2em 5em;
-	}
-
-	.title_graph {
-		color: black;
-	}
-
-
 	
+	width: 100%;
+	text-align: center;
+}
+	
+#vizu1 {
+	background-color: #CCDDEE;
+	/*float: left;*/
+	width: 470px;
+	height: 470px;
+	display: inline-block;
+	margin-right: 35px;
+}
+	
+#vizu2 {
+	background-color: #BBDEEA;
+	/*float: right;*/
+	width: 470px;
+	height: 470px;
+	display: inline-block;
+	margin-left: 35px;
+}
+
+
+
+#test{
+	width: 100%;
+	text-align: center;
+	padding-top : 25px;
+}
+
+#title_graph {
+	padding-bottom:0;
+}
+
+#graph3{
+	display: inline-block;
+}
+
+
