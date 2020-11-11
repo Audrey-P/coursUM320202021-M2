@@ -86,7 +86,7 @@ async function initialize()
                 'application/json': function () {
                     res.setHeader('Content-disposition', 'attachment; filename=univs.json'); //do nothing
                     res.set('Content-Type', 'application/json');
-                    res.json(json.records);
+                    res.json(json);
                 },
 			})
         });
