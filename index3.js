@@ -91,6 +91,42 @@ async function initialize()
 			})
         });
     })
+	
+   app.get("/etab/:etab", cors(corsOptions), function(req, res){
+	let data_etab = req.params.etab;
+	let univs = [];
+        let url = "https://data.enseignementsup-recherche.gouv.fr/api/records/1.0/search/?dataset=fr-esr-statistiques-sur-les-effectifs-d-etudiants-inscrits-par-etablissement&q=&rows=100&sort=-rentree&refine.rentree_lib=2018-19&refine.etablissement="+data_etab ;
+
+	fetch(url)
+	.then(res => res.json())
+	.then(json =>{
+		let univ = {};
+
+		json.records.forEach(function(record){
+			univ.id = record.fields.etablissement;
+			univ.commune = record.fields.com_etab_lib;
+			univ.region = record.fields.reg_etab_lib;
+			univ.wiki = record.fields.element_wikidata;
+			univ.departement = record.fields.dep_etab_lib;
+			univ.nometablissement = record.fields.etablissement_lib;
+			univ.typeetablissement = record.fields.etablissement_type_lib;
+			univ.effectif = record.fields.effectif;
+
+			univs.push(univ);
+		})
+		console.log(univs.length);
+		console.log(univs[0]);
+
+            res.format({
+                'application/json': function () {
+                    res.setHeader('Content-disposition', 'attachment; filename=etab.json'); //do nothing
+                    res.set('Content-Type', 'application/json');
+                    res.json(json);
+                },
+			})
+        });
+    })	
+	
     app.listen(port, function () {
 
         console.log('Serveur listening on port ' + port);
