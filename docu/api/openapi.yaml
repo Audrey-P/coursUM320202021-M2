@@ -1,0 +1,2286 @@
+openapi: 3.0.0
+info:
+  title: Ressources utilisées pour le projet Open data (API-DOC)
+  description: Bienvenue dans la documentation qui repertorie les chemins et API utilisés
+  version: "1.0"
+servers:
+- url: https://data.enseignementsup-recherche.gouv.fr/
+  description: Open data
+paths:
+  /explore/dataset/fr-esr-statistiques-sur-les-effectifs-d-etudiants-inscrits-par-etablissement/table/:
+    get:
+      tags:
+      - Effectifs étudiants inscrits par établissement
+      operationId: exploreDatasetFr_esr_statistiques_sur_les_effectifs_d_etudiants_inscrits_par_etablissementTableGET
+      parameters:
+      - name: RENTREE
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: RENTREE_lib
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Identifiant Paysage
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: ETABLISSEMENT
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: Établissement
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: Sigle
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: Nombre d'étudiants inscrits (inscriptions principales) y compris doubles
+          inscriptions CPGE
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Nombre d'étudiants inscrits (inscriptions principales) hors doubles
+          inscriptions CPGE
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Nombre total d'étudiants inscrits (inscriptions principales et secondes)
+          y compris doubles inscriptions CPGE
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Nombre total d'étudiants (inscriptions principales et secondes)  hors
+          double inscription CPGE
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Nombre de nouveaux bacheliers inscrits y compris doubles inscriptions
+          CPGE
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Nombre de nouveaux bacheliers inscrits hors double inscription CPGE
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Sexe : Femmes'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Sexe : Hommes'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Bac : Série L'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Bac : Série ES'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Bac : Série S'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Bac : Séries STMG'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Bac : Autres séries technologiques'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Bac : Baccalauréat professionnel'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Bac : Dispensés'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Âge au baccalauréat : En avance au bac d''un an ou plus'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Âge au baccalauréat : A l''heure'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Âge au baccalauréat : En retard au bac d''un an ou plus'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Âge au baccalauréat : Non renseigné ou non bachelier'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Attractivité départementale (département d''obtention du baccalauréat)
+          : Même département'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Attractivité départementale (département d''obtention du baccalauréat)
+          : Départements limitrophes'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Attractivité départementale (département d''obtention du baccalauréat)
+          : Autres départements français'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Attractivité départementale (département d''obtention du baccalauréat)
+          : Etranger'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Attractivité départementale (département d''obtention du baccalauréat)
+          : Non renseigné'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Attractivité départementale (département d''obtention du baccalauréat)
+          : Non bacheliers'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Etudiants en mobilité internationale
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Attractivité internationale : Etudiants de nationalité étrangère issus
+          de système éducatif étranger'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Cycle universitaire (cursus LMD) : L (1er cycle)'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Cycle universitaire (cursus LMD) : M (2ème cycle)'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Cycle universitaire (cursus LMD) : D (3ème cycle)'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Type de diplôme : Diplômes nationaux'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Type de diplôme : Diplômes d''établissement'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Diplôme préparé : Diplôme d''accès aux études universitaires'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Diplôme préparé : Capacité en droit'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Diplôme préparé : Licence'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Diplôme préparé : Diplôme universitaire de technologie'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Diplôme préparé : CPGE universitaire'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Diplôme préparé : Licence professionnelle'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Diplôme préparé : Master enseignement'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Diplôme préparé : Autres masters'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Diplôme préparé : Formations d''ingénieurs'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Diplôme préparé : Formations d''IEP'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Diplôme préparé : PACES et PluriPASS'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Diplôme préparé : Formations paramédicales'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Diplôme préparé : Autres formations de santé'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Diplôme préparé : Doctorat'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Diplôme préparé : HDR'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Diplôme préparé : Diplômes d''établissement'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Diplôme préparé : Autres formations et diplômes'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Grande discipline : Droit, sciences économiques, AES'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Grande discipline : Lettres, langues et sciences humaines'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Grande discipline : Sciences et sciences de l''ingénieur'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Grande discipline : STAPS'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Grande discipline : Santé'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Grande discipline : Interdisciplinaire'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Discipline : Droit, sciences politiques'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Discipline : Sciences économiques, gestion'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Discipline : Administration économique et sociale'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Discipline : Pluridisciplinaire droit, sciences économiques, AES'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Discipline : Lettres, sciences du langage, arts'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Discipline : Langues'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Discipline : Sciences humaines et sociales'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Discipline : Pluridisciplinaire lettres, langues, sciences humaines'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Discipline : Sciences de la vie, de la terre et de l''univers'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Discipline : Sciences fondamentales et applications'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Discipline : Pluridisciplinaire sciences'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Discipline : STAPS'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Discipline : Médecine'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Discipline : Odontologie'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Discipline : Pharmacie'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Discipline : Pluridisciplinaire santé'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Discipline : Interdisciplinaire'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Sciences juridiques'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Sciences politiques'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Pluridisciplinaire droit, sciences politiques'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Sciences économiques'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Sciences de gestion'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Pluridisciplinaire sciences économiques et
+          gestion'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Administration économique et sociale'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Pluridisciplinaire droit, sciences économiques,
+          AES'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Sciences du langage, linguistique'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Langues et littératures anciennes'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Langues et littératures françaises'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Littérature générale et comparée'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Arts'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Pluridisciplinaire lettres, sciences du langage,
+          arts'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Français, langue étrangère'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Langues et littératures étrangères'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Langues étrangères appliquées'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Cultures et langues régionales'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Pluridisciplinaire langues'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Philosophie, épistémologie'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Histoire'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Géographie'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Aménagement'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Archéologie, ethnologie, préhistoire'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Sciences religieuses'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Psychologie'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Sociologie, démographie'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Sciences de l''éducation'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Sciences de l''information et la communication'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Pluridisciplinaire sciences humaines et sociales'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Pluridisciplinaire lettres, langues, sciences
+          humaines'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Sciences de l''univers'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Sciences de la vie'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Pluridisciplinaire sciences de la vie, de la
+          santé, de la terre et de l''univers'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Mathématiques'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Physique'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Chimie'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Mathématiques appliquées et sciences sociales'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Mécanique, génie mécanique'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Génie civil'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Génie des procédés'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Informatique'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Électronique, génie électrique'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Technologie et sciences industrielles'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Formation générale aux métiers de l''ingénieur'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Mathématique et informatique'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Physique et chimie'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Pluridisciplinaire sciences fondamentales et
+          applications'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Pluridisciplinaire sciences'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : STAPS'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Médecine'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Odontologie'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Pharmacie'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Pluridisciplinaire santé'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: 'Secteur disciplinaire : Interdisciplinaire'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Type d'établissement
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: ETABLISSEMENT_TYPE
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: Typologie d'établissement
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: Élément wikidata
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: Identifiant ETER
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: Identifiant ROR
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: Champ statistique (universités et établissements assimilés France métro+DOM)
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: Localisation du siège de l’établissement
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: REG_ETAB
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: Région du siège de l’établissement
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: ACA_ETAB
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: Académie du siège de l’établissement
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: DEP_ETAB
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: Département du siège de l’établissement
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: UUCR_ETAB
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: Unité urbaine ou commune rurale du siège de l’établissement
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: COM_ETAB
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Commune du siège de l’établissement
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: ' https://docs.google.com/document/d/1o2Y4zBspdWTGZTfOt0jCTdWjefFvmkaIfrDuWorusQQ/edit'
+          content:
+            application/xml:
+              schema:
+                type: object
+                description: not implemented yed
+                x-content-type: application/xml
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+      security:
+      - basicAuth: []
+      x-swagger-router-controller: EffectifsTudiantsInscritsParTablissement
+  '/explore/dataset/fr-esr-parcoursup/table ':
+    get:
+      tags:
+      - 'Voeux de poursuite Parcousup '
+      operationId: exploreDatasetFr_esr_parcoursupTable_GET
+      parameters:
+      - name: Session
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Statut de l’établissement de la filière de formation (public, privé…)
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: Code UAI de l'établissement
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: Établissement
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: Code départemental de l’établissement
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Département de l’établissement
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: Région de l’établissement
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: Académie de l’établissement
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: Filière de formation très agrégée
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: Filière de formation
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: Concours communs et banques d'épreuves
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: Filière de formation détaillée
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: Filière de formation très détaillée
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: Lien de la formation sur la plateforme Parcoursup
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: Coordonnées GPS de la formation
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: number
+      - name: Capacité de l’établissement par formation
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif total des candidats pour une formation
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Dont effectif des candidates pour une formation
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif total des candidats en phase principale
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Dont effectif des candidats ayant postulé en internat
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif des candidats néo bacheliers généraux en phase principale
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Dont effectif des candidats boursiers néo bacheliers généraux en phase
+          principale
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif des candidats néo bacheliers technologiques en phase principale
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Dont effectif des candidats boursiers néo bacheliers technologiques
+          en phase principale
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif des candidats néo bacheliers professionnels en phase principale
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Dont effectif des candidats boursiers néo bacheliers professionnels
+          en phase principale
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif des autres candidats en phase principale
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif total des candidats en phase complémentaire
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif des candidats néo bacheliers généraux en phase complémentaire
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif des candidats néo bacheliers technologique en phase complémentaire
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif des candidats néo bacheliers professionnels en phase complémentaire
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectifs des autres candidats en phase complémentaire
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif total des candidats classés par l’établissement en phase principale
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif des candidats classés par l’établissement en phase complémentaire
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif des candidats classés par l’établissement en internat (CPGE)
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif des candidats classés par l’établissement hors internat (CPGE)
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif des candidats néo bacheliers généraux classés par l’établissement
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Dont effectif des candidats boursiers néo bacheliers généraux classés
+          par l’établissement
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif des candidats néo bacheliers technologiques classés par l’établissement
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Dont effectif des candidats boursiers néo bacheliers technologiques
+          classés par l’établissement
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif des candidats néo bacheliers professionnels classés par l’établissement
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Dont effectif des candidats boursiers néo bacheliers professionnels
+          classés par l’établissement
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif des autres candidats classés par l’établissement
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif total des candidats ayant reçu une proposition d’admission
+          de la part de l’établissement
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Rang du dernier appelé
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif total des candidats ayant accepté la proposition de l’établissement
+          (admis)
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Dont effectif des candidates admises
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif des admis en phase principale
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif des admis en phase complémentaire
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Dont effectif des admis ayant reçu leur proposition d’admission à l'ouverture
+          de la procédure principale
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Dont effectif des admis ayant reçu leur proposition d’admission avant
+          le baccalauréat
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Dont effectif des admis ayant reçu leur proposition d’admission avant
+          la fin de la procédure principale
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Dont effectif des admis en internat
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Dont effectif des admis boursiers néo bacheliers
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif des admis néo bacheliers
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif des admis néo bacheliers généraux
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif des admis néo bacheliers technologiques
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif des admis néo bacheliers professionnels
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif des autres candidats admis
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Dont effectif des admis néo bacheliers sans information sur la mention
+          au bac
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Dont effectif des admis néo bacheliers sans mention au bac
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Dont effectif des admis néo bacheliers avec mention Assez Bien au bac
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Dont effectif des admis néo bacheliers avec mention Bien au bac
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Dont effectif des admis néo bacheliers avec mention Très Bien au bac
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif des admis néo bacheliers généraux ayant eu une mention au bac
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif des admis néo bacheliers technologiques ayant eu une mention
+          au bac
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Effectif des admis néo bacheliers professionnels ayant eu une mention
+          au bac
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Dont effectif des admis issus du même établissement (BTS/CPGE)
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Dont effectif des admises issues du même établissement (BTS/CPGE)
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Dont effectif des admis issus de la même académie
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: Dont effectif des admis issus de la même académie (Paris/Créteil/Versailles
+          réunies)
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: '% d’admis ayant reçu leur proposition d’admission à l''ouverture de
+          la procédure principale'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: number
+      - name: '% d’admis ayant reçu leur proposition d’admission avant le baccalauréat'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: number
+      - name: '% d’admis ayant reçu leur proposition d’admission avant la fin de la
+          procédure principale'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: number
+      - name: '% d’admis dont filles'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: number
+      - name: '% d’admis néo bacheliers issus de la même académie'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: number
+      - name: '% d’admis néo bacheliers issus de la même académie (Paris/Créteil/Versailles
+          réunies)'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: '% d’admis néo bacheliers issus du même établissement (BTS/CPGE)'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: '% d’admis néo bacheliers boursiers'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: number
+      - name: '% d’admis néo bacheliers'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: number
+      - name: '% d’admis néo bacheliers sans information sur la mention au bac'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: number
+      - name: '% d’admis néo bacheliers sans mention au bac'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: number
+      - name: '% d’admis néo bacheliers avec mention Assez Bien au bac'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: number
+      - name: '% d’admis néo bacheliers avec mention Bien au bac'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: number
+      - name: '% d’admis néo bacheliers avec mention Très Bien au bac'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: number
+      - name: '% d’admis néo bacheliers généraux'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: number
+      - name: Dont % d’admis avec mention
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: number
+      - name: '% d’admis néo bacheliers technologiques'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: number
+      - name: Dont % d’admis avec mention.1
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: number
+      - name: '% d’admis néo bacheliers professionnels'
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: number
+      - name: Dont % d’admis avec mention.2
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: number
+      - name: tri
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: https://docs.google.com/document/d/1o2Y4zBspdWTGZTfOt0jCTdWjefFvmkaIfrDuWorusQQ/edit
+          content:
+            application/xml:
+              schema:
+                type: object
+                description: not implemented yed
+                x-content-type: application/xml
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_1'
+      security:
+      - basicAuth: []
+      x-swagger-router-controller: VoeuxDePoursuiteParcousup_
+components:
+  schemas:
+    inline_response_200_1:
+      type: object
+      properties:
+        Session:
+          type: integer
+        Statut de l’établissement de la filière de formation (public, privé…):
+          type: string
+        Code UAI de l'établissement:
+          type: string
+        Établissement:
+          type: string
+        Code départemental de l’établissement:
+          type: integer
+        Département de l’établissement:
+          type: string
+        Région de l’établissement:
+          type: string
+        Académie de l’établissement:
+          type: string
+        Filière de formation très agrégée:
+          type: string
+        Filière de formation:
+          type: string
+        Concours communs et banques d'épreuves:
+          type: string
+        Filière de formation détaillée:
+          type: string
+        Filière de formation très détaillée:
+          type: string
+        Lien de la formation sur la plateforme Parcoursup:
+          type: string
+        Coordonnées GPS de la formation:
+          type: string
+        Capacité de l’établissement par formation:
+          type: integer
+        Effectif total des candidats pour une formation:
+          type: integer
+        Dont effectif des candidates pour une formation:
+          type: integer
+        Effectif total des candidats en phase principale:
+          type: integer
+        Dont effectif des candidats ayant postulé en internat:
+          type: integer
+        Effectif des candidats néo bacheliers généraux en phase principale:
+          type: integer
+        Dont effectif des candidats boursiers néo bacheliers généraux en phase principale:
+          type: integer
+        Effectif des candidats néo bacheliers technologiques en phase principale:
+          type: integer
+        Dont effectif des candidats boursiers néo bacheliers technologiques en phase principale:
+          type: integer
+        Effectif des candidats néo bacheliers professionnels en phase principale:
+          type: integer
+        Dont effectif des candidats boursiers néo bacheliers professionnels en phase principale:
+          type: string
+        Effectif des autres candidats en phase principale:
+          type: integer
+        Effectif total des candidats en phase complémentaire:
+          type: integer
+        Effectif des candidats néo bacheliers généraux en phase complémentaire:
+          type: integer
+        Effectif des candidats néo bacheliers technologique en phase complémentaire:
+          type: integer
+        Effectif des candidats néo bacheliers professionnels en phase complémentaire:
+          type: integer
+        Effectifs des autres candidats en phase complémentaire:
+          type: integer
+        Effectif total des candidats classés par l’établissement en phase principale:
+          type: integer
+        Effectif des candidats classés par l’établissement en phase complémentaire:
+          type: integer
+        Effectif des candidats classés par l’établissement en internat (CPGE):
+          type: integer
+        Effectif des candidats classés par l’établissement hors internat (CPGE):
+          type: integer
+        Effectif des candidats néo bacheliers généraux classés par l’établissement:
+          type: integer
+        Dont effectif des candidats boursiers néo bacheliers généraux classés par l’établissement:
+          type: integer
+        Effectif des candidats néo bacheliers technologiques classés par l’établissement:
+          type: integer
+        Dont effectif des candidats boursiers néo bacheliers technologiques classés par l’établissement:
+          type: integer
+        Effectif des candidats néo bacheliers professionnels classés par l’établissement:
+          type: integer
+        Dont effectif des candidats boursiers néo bacheliers professionnels classés par l’établissement:
+          type: integer
+        Effectif des autres candidats classés par l’établissement:
+          type: integer
+        Effectif total des candidats ayant reçu une proposition d’admission de la part de l’établissement:
+          type: integer
+        Rang du dernier appelé:
+          type: integer
+        Effectif total des candidats ayant accepté la proposition de l’établissement (admis):
+          type: integer
+        Dont effectif des candidates admises:
+          type: integer
+        Effectif des admis en phase principale:
+          type: integer
+        Effectif des admis en phase complémentaire:
+          type: integer
+        Dont effectif des admis ayant reçu leur proposition d’admission à l'ouverture de la procédure principale:
+          type: integer
+        Dont effectif des admis ayant reçu leur proposition d’admission avant le baccalauréat:
+          type: integer
+        Dont effectif des admis ayant reçu leur proposition d’admission avant la fin de la procédure principale:
+          type: integer
+        Dont effectif des admis en internat:
+          type: integer
+        Dont effectif des admis boursiers néo bacheliers:
+          type: integer
+        Effectif des admis néo bacheliers:
+          type: integer
+        Effectif des admis néo bacheliers généraux:
+          type: integer
+        Effectif des admis néo bacheliers technologiques:
+          type: integer
+        Effectif des admis néo bacheliers professionnels:
+          type: integer
+        Effectif des autres candidats admis:
+          type: integer
+        Dont effectif des admis néo bacheliers sans information sur la mention au bac:
+          type: integer
+        Dont effectif des admis néo bacheliers sans mention au bac:
+          type: integer
+        Dont effectif des admis néo bacheliers avec mention Assez Bien au bac:
+          type: integer
+        Dont effectif des admis néo bacheliers avec mention Bien au bac:
+          type: integer
+        Dont effectif des admis néo bacheliers avec mention Très Bien au bac:
+          type: integer
+        Effectif des admis néo bacheliers généraux ayant eu une mention au bac:
+          type: integer
+        Effectif des admis néo bacheliers technologiques ayant eu une mention au bac:
+          type: integer
+        Effectif des admis néo bacheliers professionnels ayant eu une mention au bac:
+          type: integer
+        Dont effectif des admis issus du même établissement (BTS/CPGE):
+          type: integer
+        Dont effectif des admises issues du même établissement (BTS/CPGE):
+          type: integer
+        Dont effectif des admis issus de la même académie:
+          type: integer
+        Dont effectif des admis issus de la même académie (Paris/Créteil/Versailles réunies):
+          type: integer
+        '% d’admis ayant reçu leur proposition d’admission à l''ouverture de la procédure principale':
+          type: number
+        '% d’admis ayant reçu leur proposition d’admission avant le baccalauréat':
+          type: number
+        '% d’admis ayant reçu leur proposition d’admission avant la fin de la procédure principale':
+          type: number
+        '% d’admis dont filles':
+          type: number
+        '% d’admis néo bacheliers issus de la même académie':
+          type: number
+        '% d’admis néo bacheliers issus de la même académie (Paris/Créteil/Versailles réunies)':
+          type: number
+        '% d’admis néo bacheliers issus du même établissement (BTS/CPGE)':
+          type: number
+        '% d’admis néo bacheliers boursiers':
+          type: number
+        '% d’admis néo bacheliers':
+          type: number
+        '% d’admis néo bacheliers sans information sur la mention au bac':
+          type: number
+        '% d’admis néo bacheliers sans mention au bac':
+          type: number
+        '% d’admis néo bacheliers avec mention Assez Bien au bac':
+          type: number
+        '% d’admis néo bacheliers avec mention Bien au bac':
+          type: number
+        '% d’admis néo bacheliers avec mention Très Bien au bac':
+          type: number
+        '% d’admis néo bacheliers généraux':
+          type: number
+        Dont % d’admis avec mention:
+          type: number
+        '% d’admis néo bacheliers technologiques':
+          type: number
+        Dont % d’admis avec mention.1:
+          type: number
+        '% d’admis néo bacheliers professionnels':
+          type: number
+        Dont % d’admis avec mention.2:
+          type: number
+        tri:
+          type: string
+    inline_response_200:
+      type: object
+      properties:
+        RENTREE:
+          type: integer
+        RENTREE_lib:
+          type: integer
+        Identifiant Paysage:
+          type: string
+        ETABLISSEMENT:
+          type: string
+        Établissement:
+          type: string
+        Sigle:
+          type: string
+        Nombre d'étudiants inscrits (inscriptions principales) y compris doubles inscriptions CPGE:
+          type: integer
+        Nombre d'étudiants inscrits (inscriptions principales) hors doubles inscriptions CPGE:
+          type: integer
+        Nombre total d'étudiants inscrits (inscriptions principales et secondes) y compris doubles inscriptions CPGE:
+          type: integer
+        Nombre total d'étudiants (inscriptions principales et secondes)  hors double inscription CPGE:
+          type: integer
+        Nombre de nouveaux bacheliers inscrits y compris doubles inscriptions CPGE:
+          type: integer
+        Nombre de nouveaux bacheliers inscrits hors double inscription CPGE:
+          type: integer
+        'Sexe : Femmes':
+          type: integer
+        'Sexe : Hommes':
+          type: integer
+        'Bac : Série L':
+          type: integer
+        'Bac : Série ES':
+          type: integer
+        'Bac : Série S':
+          type: integer
+        'Bac : Séries STMG':
+          type: integer
+        'Bac : Autres séries technologiques':
+          type: integer
+        'Bac : Baccalauréat professionnel':
+          type: integer
+        'Bac : Dispensés':
+          type: integer
+        'Âge au baccalauréat : En avance au bac d''un an ou plus':
+          type: integer
+        'Âge au baccalauréat : A l''heure':
+          type: integer
+        'Âge au baccalauréat : En retard au bac d''un an ou plus':
+          type: integer
+        'Âge au baccalauréat : Non renseigné ou non bachelier':
+          type: integer
+        'Attractivité départementale (département d''obtention du baccalauréat) : Même département':
+          type: integer
+        'Attractivité départementale (département d''obtention du baccalauréat) : Départements limitrophes':
+          type: integer
+        'Attractivité départementale (département d''obtention du baccalauréat) : Autres départements français':
+          type: integer
+        'Attractivité départementale (département d''obtention du baccalauréat) : Etranger':
+          type: integer
+        'Attractivité départementale (département d''obtention du baccalauréat) : Non renseigné':
+          type: integer
+        'Attractivité départementale (département d''obtention du baccalauréat) : Non bacheliers':
+          type: integer
+        Etudiants en mobilité internationale:
+          type: integer
+        'Attractivité internationale : Etudiants de nationalité étrangère issus de système éducatif étranger':
+          type: integer
+        'Cycle universitaire (cursus LMD) : L (1er cycle)':
+          type: integer
+        'Cycle universitaire (cursus LMD) : M (2ème cycle)':
+          type: integer
+        'Cycle universitaire (cursus LMD) : D (3ème cycle)':
+          type: integer
+        'Type de diplôme : Diplômes nationaux':
+          type: integer
+        'Type de diplôme : Diplômes d''établissement':
+          type: integer
+        'Diplôme préparé : Diplôme d''accès aux études universitaires':
+          type: integer
+        'Diplôme préparé : Capacité en droit':
+          type: integer
+        'Diplôme préparé : Licence':
+          type: integer
+        'Diplôme préparé : Diplôme universitaire de technologie':
+          type: integer
+        'Diplôme préparé : CPGE universitaire':
+          type: integer
+        'Diplôme préparé : Licence professionnelle':
+          type: integer
+        'Diplôme préparé : Master enseignement':
+          type: integer
+        'Diplôme préparé : Autres masters':
+          type: integer
+        'Diplôme préparé : Formations d''ingénieurs':
+          type: integer
+        'Diplôme préparé : Formations d''IEP':
+          type: integer
+        'Diplôme préparé : PACES et PluriPASS':
+          type: integer
+        'Diplôme préparé : Formations paramédicales':
+          type: integer
+        'Diplôme préparé : Autres formations de santé':
+          type: integer
+        'Diplôme préparé : Doctorat':
+          type: integer
+        'Diplôme préparé : HDR':
+          type: integer
+        'Diplôme préparé : Diplômes d''établissement':
+          type: integer
+        'Diplôme préparé : Autres formations et diplômes':
+          type: integer
+        'Grande discipline : Droit, sciences économiques, AES':
+          type: integer
+        'Grande discipline : Lettres, langues et sciences humaines':
+          type: integer
+        'Grande discipline : Sciences et sciences de l''ingénieur':
+          type: integer
+        'Grande discipline : STAPS':
+          type: integer
+        'Grande discipline : Santé':
+          type: integer
+        'Grande discipline : Interdisciplinaire':
+          type: integer
+        'Discipline : Droit, sciences politiques':
+          type: integer
+        'Discipline : Sciences économiques, gestion':
+          type: integer
+        'Discipline : Administration économique et sociale':
+          type: integer
+        'Discipline : Pluridisciplinaire droit, sciences économiques, AES':
+          type: integer
+        'Discipline : Lettres, sciences du langage, arts':
+          type: integer
+        'Discipline : Langues':
+          type: integer
+        'Discipline : Sciences humaines et sociales':
+          type: integer
+        'Discipline : Pluridisciplinaire lettres, langues, sciences humaines':
+          type: integer
+        'Discipline : Sciences de la vie, de la terre et de l''univers':
+          type: integer
+        'Discipline : Sciences fondamentales et applications':
+          type: integer
+        'Discipline : Pluridisciplinaire sciences':
+          type: integer
+        'Discipline : STAPS':
+          type: integer
+        'Discipline : Médecine':
+          type: integer
+        'Discipline : Odontologie':
+          type: integer
+        'Discipline : Pharmacie':
+          type: integer
+        'Discipline : Pluridisciplinaire santé':
+          type: integer
+        'Discipline : Interdisciplinaire':
+          type: integer
+        'Secteur disciplinaire : Sciences juridiques':
+          type: integer
+        'Secteur disciplinaire : Sciences politiques':
+          type: integer
+        'Secteur disciplinaire : Pluridisciplinaire droit, sciences politiques':
+          type: integer
+        'Secteur disciplinaire : Sciences économiques':
+          type: integer
+        'Secteur disciplinaire : Sciences de gestion':
+          type: integer
+        'Secteur disciplinaire : Pluridisciplinaire sciences économiques et gestion':
+          type: integer
+        'Secteur disciplinaire : Administration économique et sociale':
+          type: integer
+        'Secteur disciplinaire : Pluridisciplinaire droit, sciences économiques, AES':
+          type: integer
+        'Secteur disciplinaire : Sciences du langage, linguistique':
+          type: integer
+        'Secteur disciplinaire : Langues et littératures anciennes':
+          type: integer
+        'Secteur disciplinaire : Langues et littératures françaises':
+          type: integer
+        'Secteur disciplinaire : Littérature générale et comparée':
+          type: integer
+        'Secteur disciplinaire : Arts':
+          type: integer
+        'Secteur disciplinaire : Pluridisciplinaire lettres, sciences du langage, arts':
+          type: integer
+        'Secteur disciplinaire : Français, langue étrangère':
+          type: integer
+        'Secteur disciplinaire : Langues et littératures étrangères':
+          type: integer
+        'Secteur disciplinaire : Langues étrangères appliquées':
+          type: integer
+        'Secteur disciplinaire : Cultures et langues régionales':
+          type: integer
+        'Secteur disciplinaire : Pluridisciplinaire langues':
+          type: integer
+        'Secteur disciplinaire : Philosophie, épistémologie':
+          type: integer
+        'Secteur disciplinaire : Histoire':
+          type: integer
+        'Secteur disciplinaire : Géographie':
+          type: integer
+        'Secteur disciplinaire : Aménagement':
+          type: integer
+        'Secteur disciplinaire : Archéologie, ethnologie, préhistoire':
+          type: integer
+        'Secteur disciplinaire : Sciences religieuses':
+          type: integer
+        'Secteur disciplinaire : Psychologie':
+          type: integer
+        'Secteur disciplinaire : Sociologie, démographie':
+          type: integer
+        'Secteur disciplinaire : Sciences de l''éducation':
+          type: integer
+        'Secteur disciplinaire : Sciences de l''information et la communication':
+          type: integer
+        'Secteur disciplinaire : Pluridisciplinaire sciences humaines et sociales':
+          type: integer
+        'Secteur disciplinaire : Pluridisciplinaire lettres, langues, sciences humaines':
+          type: integer
+        'Secteur disciplinaire : Sciences de l''univers':
+          type: integer
+        'Secteur disciplinaire : Sciences de la vie':
+          type: integer
+        'Secteur disciplinaire : Pluridisciplinaire sciences de la vie, de la santé, de la terre et de l''univers':
+          type: integer
+        'Secteur disciplinaire : Mathématiques':
+          type: integer
+        'Secteur disciplinaire : Physique':
+          type: integer
+        'Secteur disciplinaire : Chimie':
+          type: integer
+        'Secteur disciplinaire : Mathématiques appliquées et sciences sociales':
+          type: integer
+        'Secteur disciplinaire : Mécanique, génie mécanique':
+          type: integer
+        'Secteur disciplinaire : Génie civil':
+          type: integer
+        'Secteur disciplinaire : Génie des procédés':
+          type: integer
+        'Secteur disciplinaire : Informatique':
+          type: integer
+        'Secteur disciplinaire : Électronique, génie électrique':
+          type: integer
+        'Secteur disciplinaire : Technologie et sciences industrielles':
+          type: integer
+        'Secteur disciplinaire : Formation générale aux métiers de l''ingénieur':
+          type: integer
+        'Secteur disciplinaire : Mathématique et informatique':
+          type: integer
+        'Secteur disciplinaire : Physique et chimie':
+          type: integer
+        'Secteur disciplinaire : Pluridisciplinaire sciences fondamentales et applications':
+          type: integer
+        'Secteur disciplinaire : Pluridisciplinaire sciences':
+          type: integer
+        'Secteur disciplinaire : STAPS':
+          type: integer
+        'Secteur disciplinaire : Médecine':
+          type: integer
+        'Secteur disciplinaire : Odontologie':
+          type: integer
+        'Secteur disciplinaire : Pharmacie':
+          type: integer
+        'Secteur disciplinaire : Pluridisciplinaire santé':
+          type: integer
+        'Secteur disciplinaire : Interdisciplinaire':
+          type: integer
+        Type d'établissement:
+          type: string
+        ETABLISSEMENT_TYPE:
+          type: string
+        Typologie d'établissement:
+          type: string
+        Élément wikidata:
+          type: string
+        Identifiant ETER:
+          type: string
+        Identifiant ROR:
+          type: string
+        Champ statistique (universités et établissements assimilés France métro+DOM):
+          type: string
+        Localisation du siège de l’établissement:
+          type: string
+        REG_ETAB:
+          type: string
+        Région du siège de l’établissement:
+          type: string
+        ACA_ETAB:
+          type: string
+        Académie du siège de l’établissement:
+          type: string
+        DEP_ETAB:
+          type: string
+        Département du siège de l’établissement:
+          type: string
+        UUCR_ETAB:
+          type: string
+        Unité urbaine ou commune rurale du siège de l’établissement:
+          type: string
+        COM_ETAB:
+          type: integer
+        Commune du siège de l’établissement:
+          type: string
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
