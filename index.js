@@ -7,14 +7,14 @@ const port = process.env.PORT || 3000 ;
 
 var fetch = require('node-fetch');
 var https = require('https');
-
+var fs = require("fs"); // Pour lire fichier xml 
 
 var cors = require('cors');
 
 var corsOptions = {
     origin: 'https://Audrey-P.github.io',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-  }
+}
 
 //init some date fetched somewhere
 let initjson = {};
@@ -31,7 +31,22 @@ async function initialize()
 
     //ROUTES
 
+    // VOCABULAIRE RDF
+    app.get("/rdfvocabulary", cors(corsOptions), function(req, res){
+        //let xml = fs.readFileSync('./docs/RDF.xml');
+        //res.send(xml); // Telecharge le fichier .xml
+    
+        fs.readFile('./docs/RDF.xml', 'utf8', function (err,data) {
+            var xml = data.replace(':domaine:', req.protocol+"://"+req.headers.host); // Pour que cela fonctionne peu importe le protocole
+            res.set('Content-Type', 'application/xml');
+            res.setHeader('Content-disposition', 'attachment; filename=RDF.xml');
+            res.send(xml);
+          });
+    
+    }); 
 
+    // FETCH REGION
+/*
     app.get("/fetch/:region", cors(corsOptions), function(req, res){
 		
 		let data_region = req.params.region;
@@ -73,6 +88,8 @@ async function initialize()
 			      })
         });
     })
+*/
+
 
     app.listen(port, function () {
 

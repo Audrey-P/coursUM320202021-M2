@@ -1,0 +1,20 @@
+{
+  "name": "ressources-utilis-es-pour-le-projet-open-data-api-doc",
+  "version": "1.0",
+  "description": "Bienvenue dans la documentation qui repertorie les chemins et API utilisés",
+  "main": "index.js",
+  "scripts": {
+	"prestart": "npm install",
+	"start": "node index.js"
+  },
+  "keywords": [
+    "swagger"
+  ],
+  "license": "Unlicense",
+  "private": true,
+  "dependencies": {
+    "connect": "^3.2.0",
+    "js-yaml": "^3.3.0",
+    "oas3-tools": "^2.0.2"
+  }
+}
