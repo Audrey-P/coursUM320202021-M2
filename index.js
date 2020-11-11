@@ -26,7 +26,7 @@ app.get("/rdfvocabulary", cors(corsOptions), function(req, res){
     //res.set('Content-Type', 'application/xml');
 
     res.send('OKKKKKK');
-    //console.log(xml);
+    console.log(xml);
 });
 
 //init some date fetched somewhere
