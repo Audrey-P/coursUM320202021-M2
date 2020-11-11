@@ -43,15 +43,15 @@ var dataSet = [
  
 $(document).ready(function() {
     $('#table').DataTable( {
-        data: dataSet,
+        data: {url: "./univs/Occitanie/univs.json"},
 		language: {url: "French.json"},
         columns: [
-            { title: "Etablissement",data: ".nom" },
-            { title: "Commune",data: ".nationalite" },
-            { title: "Capacité d'accueil",data: ".nom" },
-            { title: "Effectifs inscrits",data: ".nom" },
-            { title: "Effectifs admis",data: ".nom" },
-			{ title: "Informations complémentaires",data: ".film" }
+            { title: "Etablissement",data: ".commune" },
+            { title: "Commune",data: ".effectif" },
+            { title: "Capacité d'accueil",data: ".wiki" },
+            { title: "Effectifs inscrits",data: ".effectif" },
+            { title: "Effectifs admis",data: ".effectif" },
+			{ title: "Informations complémentaires",data: ".effectif" }
         ]
     } );
 } );
