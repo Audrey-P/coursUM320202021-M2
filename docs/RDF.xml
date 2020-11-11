@@ -20,7 +20,7 @@
 <rdf:Property rdf:about=":domaine:/rdfvocabulary#hasRegion" rdfs:label="hasRegion" 
 rdfs:comment="La region">
       <rdfs:domain rdf:resource="#Etablissement"/>
-    <rdfs:range rdf:resource="mondomain/rdfvocabulary#Region"/>
+    <rdfs:range rdf:resource=":domain:/rdfvocabulary#Region"/>
     <rdfs:isDefinedBy rdf:resource=":domaine:/rdfvocabulary"/>
  </rdf:Property>
 
@@ -43,7 +43,7 @@ rdfs:comment="Le nom de la region fr">
 <rdf:Property rdf:about=":domaine:/rdfvocabulary#hasEtablissement" rdfs:label="hasEtablissement" 
 rdfs:comment="L etablissement">
       <rdfs:domain rdf:resource="#Region"/>
-    <rdfs:range rdf:resource="mondomain/rdfvocabulary#Etablissement"/>
+    <rdfs:range rdf:resource=":domaine:/rdfvocabulary#Etablissement"/>
     <rdfs:isDefinedBy rdf:resource=":domaine:/rdfvocabulary"/>
  </rdf:Property>
 

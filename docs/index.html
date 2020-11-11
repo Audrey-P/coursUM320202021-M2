@@ -24,6 +24,30 @@
 	
 	<body  onload ="draw();draw2()">
 	
+		<script>
+			//univs = []
+			// fetch pour reccuperer les données serveur 
+			/*
+			fetch('http://localhost:3000/univs/Normandie') // a modifier pour reccupérer la region demandée
+				.then(res => res.json()) 
+				.then(json => console.log("Fetch client :",json))
+				//.then(json => univs.push(json))
+			*/
+
+				async function test (){
+					//var sent_region = document.getElementById('inRegion').value;
+					const response = await fetch('http://localhost:3000/univs/Normandie'); //const response = await fetch('http://localhost:3000/univs/+sent_region');
+					var univs = await response.json();
+					console.log("async function :",univs[0]);
+					return univs
+				};
+
+				var univs = test();
+				//var univs = (async () => {test()})();
+				console.log("data :",univs[0]);
+	</script>
+
+
 	<!-- Header -->
 		<header>
 			
@@ -72,7 +96,6 @@
 			<input type="image" src="images/xml.png" width='67'>
 		</div>
 		</section>
-
 
 		
 		<div id="graphiques"  >

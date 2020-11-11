@@ -1,4 +1,7 @@
 function draw(){
+
+	//console.log(univs)
+
 	var svg= d3.select("#svg");
 	var gContainer= svg.append("g");
 	var borderSVG= svg.append("rect");
