@@ -18,15 +18,15 @@ var corsOptions = {
 
 app.get("/rdfvocabulary", cors(corsOptions), function(req, res){
     //res.setHeader('Access-Control-Allow-Origin', corsOrigins);
-    let filePath = path.join('docs', 'RDF.xml');
+    //let filePath = path.join('docs', 'RDF.xml');
 
-    let xml = fs.readFileSync(filePath);
+    //let xml = fs.readFileSync(filePath);
 
     //res.setHeader('Content-disposition', 'attachment; filename=RDF.xml');
     //res.set('Content-Type', 'application/xml');
 
     res.send('OKKKKKK');
-    console.log(xml);
+    //console.log(xml);
 });
 
 //init some date fetched somewhere
