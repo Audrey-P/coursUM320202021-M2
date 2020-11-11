@@ -14,7 +14,20 @@ var cors = require('cors');
 var corsOptions = {
     origin: 'https://Audrey-P.github.io',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-  }
+}
+
+app.get("/rdfvocabulary", cors(corsOptions), function(req, res){
+    //res.setHeader('Access-Control-Allow-Origin', corsOrigins);
+    let filePath = path.join('docs', 'RDF.xml');
+
+    let xml = fs.readFileSync(filePath);
+
+    //res.setHeader('Content-disposition', 'attachment; filename=RDF.xml');
+    //res.set('Content-Type', 'application/xml');
+
+    res.send('OKKKKKK');
+    console.log(xml);
+});
 
 //init some date fetched somewhere
 let initjson = {};
@@ -74,19 +87,6 @@ async function initialize()
         });
     })
 */
-
-app.get("/rdfvocabulary", cors(corsOptions), function(req, res){
-    //res.setHeader('Access-Control-Allow-Origin', corsOrigins);
-    let filePath = path.join('docs', 'RDF.xml');
-
-    let xml = fs.readFileSync(filePath);
-
-    //res.setHeader('Content-disposition', 'attachment; filename=RDF.xml');
-    //res.set('Content-Type', 'application/xml');
-
-    res.send('OKKKKKK');
-    console.log(xml);
-});
 
 
     app.listen(port, function () {
