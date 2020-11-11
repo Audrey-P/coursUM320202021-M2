@@ -41,6 +41,14 @@ L'API Parcoursup contenant uniquement des données sur la session 2019, nous avo
 
 Les données des deux bases de données sont reliées entre elles via le CODE établissement contenu dans chacune des deux bases. Le fichier ainsi obtenu contient une ligne par établissement, contenant l'ensemble des informations listées ci-dessus ainsi qu'une variable calculée à partir de l'effectif (API Effectif) et du nombre de demandes (API Parcoursup). 
 
+# Diagramme de classes
+
+![alt text](/docs/images/diag_classes.png)
+
+# Diagramme entités relations
+
+![alt text](/docs/images/diag_e_r.png)
+
 # Requêtes
 Nous avons deux différentes routes :
  - GET/univs renvoie la collection des universités en France
