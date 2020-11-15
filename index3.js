@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000 ;
 
 var fetch = require('node-fetch');
 var https = require('https');
-
+var fs = require("fs"); // Pour lire fichier xml 
 
 var cors = require('cors');
 
@@ -16,9 +16,6 @@ var corsOptions = {
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
   }
 
-
-
-
 async function initialize()
 {
     //serves static files
@@ -26,6 +23,19 @@ async function initialize()
 
     //ROUTES
 
+	    // VOCABULAIRE RDF
+		app.get("/rdfvocabulary", cors(corsOptions), function(req, res){
+			//let xml = fs.readFileSync('./docs/RDF.xml');
+			//res.send(xml); // Telecharge le fichier .xml
+			fs.readFile('./docs/RDF.xml', 'utf8', function (err,data) {
+				var xml = data.replace(':domaine:', req.protocol+"://"+req.headers.host); // Pour que cela fonctionne peu importe le protocole
+				res.set('Content-Type', 'application/xml');
+				res.setHeader('Content-disposition', 'attachment; filename=RDF.xml');
+				res.send(xml);
+			  });
+		
+		}); 
+		
     app.get("/univs/:region", cors(corsOptions), function(req, res){
 		let data_region = req.params.region;
 		let univs = [];
@@ -78,19 +88,45 @@ async function initialize()
 					};
 				});
 				univs.push(univ);
-			})
+			});
 			console.log(univs.length);
 			console.log(univs[0]);
-
-            res.format({
-                'application/json': function () {
+			
+			res.format({/*
+				//let format = req.params.format;
+				'application/xml+rdf': function () {
+					var xmlrdf = '<?xml version="1.0"?>';  
+					xmlrdf = xmlrdf.concat('<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:univvoc="https://cours20202021m2.herokuapp.com/rdfvocabulary">'); //Mettre le lien vers notre vocabulaire 
+					xmlrdf = xmlrdf.concat('<univvoc:Region>');
+					xmlrdf = xmlrdf.concat('<univvoc:hasLibR>').concat(data_region).concat('</univvoc:hasLibR>'); // remplacement data_region par univ.region ??
+					//xmlrdf = xmlrdf.concat('<univvoc:hasCodeR>').concat(univ.coderegion).concat('</univvoc:hasCodeR>'); // Ajout code region
+					//ajouter code region
+					xmlrdf = xmlrdf.concat('<univvoc:hasEtablissement>');
+					univs.forEach(function(univ){
+						xmlrdf=xmlrdf.concat('<univvoc:Etablissement>');
+						xmlrdf = xmlrdf.concat('<univvoc:hasID>').concat(univ.id).concat('</univvoc:hasID>'); 
+						xmlrdf = xmlrdf.concat('<univvoc:hasCom>').concat(univ.commune).concat('</univvoc:hasCom>'); 
+						xmlrdf = xmlrdf.concat('<univvoc:hasName>').concat(univ.nometablissement).concat('</univvoc:hasName>'); 
+						xmlrdf = xmlrdf.concat('<univvoc:hasID>').concat(univ.typeetablissement).concat('</univvoc:hasID>'); 
+						xmlrdf = xmlrdf.concat('<univvoc:hasEff>').concat(univ.effectif).concat('</univvoc:hasEff>'); 
+						xmlrdf=xmlrdf.concat('</univvoc:Etablissement>');
+					})
+					xmlrdf = xmlrdf.concat('</univvoc:hasEtablissement>');
+					xmlrdf = xmlrdf.concat('</univvoc:Region>');
+					xmlrdf = xmlrdf.concat('</rdf:RDF>');
+					//res.setHeader('Content-disposition', 'attachment; filename=trends.xml');
+					res.set('Content-Type', 'application/xml');
+					res.send(xmlrdf);
+					//console.log(xmlrdf);
+				},	*/	
+				'application/json': function () {
                     res.setHeader('Content-disposition', 'attachment; filename=univs.json'); //do nothing
                     res.set('Content-Type', 'application/json');
                     res.json(univs); // Modif json en univs
-                },
-			})
+				}		
+			});
         });
-    })
+    });
 	
    app.get("/etab/:etab", cors(corsOptions), function(req, res){
 	let data_etab = req.params.etab;
