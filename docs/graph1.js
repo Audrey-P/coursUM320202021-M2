@@ -1,6 +1,6 @@
-async function graph (){
-	//var sent_region = document.getElementById('inRegion').value;
-	const response = await fetch('/univs/Normandie'); //const response = await fetch('/univs/+sent_region');
+async function graph1 (){
+	var sent_region = document.getElementById('inRegion').value;
+	const response = await fetch('/univs/'+sent_region);
 	var univs = await response.json();
 	console.log("Async function univs :",univs[0]);
 	//return univs
