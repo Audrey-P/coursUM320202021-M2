@@ -53,9 +53,10 @@ async function initialize()
 		}).then(function(json){
 			let records1 = json[0].records;
 			let records2 = json[1].records;
-			let univ = {};
+			
 			
 			records1.forEach(function(record){
+				let univ = {};
 				univ.id = record.fields.etablissement;
 				univ.commune = record.fields.com_etab_lib;
 				univ.region = record.fields.reg_etab_lib;
@@ -89,8 +90,8 @@ async function initialize()
 				});
 				univs.push(univ);
 			});
-			console.log(univs.length);
-			console.log(univs[0]);
+			//console.log(univs.length);
+			//console.log(univs[0]);
 			
 			res.format({/*
 				//let format = req.params.format;
@@ -136,9 +137,10 @@ async function initialize()
 	fetch(url)
 	.then(res => res.json())
 	.then(json =>{
-		let univ = {};
+		
 
 		json.records.forEach(function(record){
+			let univ = {};
 			univ.id = record.fields.etablissement;
 			univ.commune = record.fields.com_etab_lib;
 			univ.region = record.fields.reg_etab_lib;
