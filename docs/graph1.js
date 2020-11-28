@@ -1,8 +1,14 @@
 async function graph1 (){
 	var sent_region = document.getElementById('inRegion').value;
-	const response = await fetch('/univs/'+sent_region);
+	const response = await fetch('/univs/'+sent_region,
+	{
+		headers: { //negociation de contenu
+		  'Accept': 'application/json',
+		  'Content-Type': 'application/json'
+		}}
+	);
 	var univs = await response.json();
-	console.log("Async function univs :",univs[0]);
+	console.log("Async function graph1 :",univs[0]);
 	//return univs
 
 

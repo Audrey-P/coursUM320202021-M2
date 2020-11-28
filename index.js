@@ -60,6 +60,7 @@ async function initialize()
 				univ.id = record.fields.etablissement;
 				univ.commune = record.fields.com_etab_lib;
 				univ.region = record.fields.reg_etab_lib;
+				univ.codeR = record.fields.reg_etab; 
 				univ.wiki = record.fields.element_wikidata;
 				univ.departement = record.fields.dep_etab_lib;
 				univ.nometablissement = record.fields.etablissement_lib;
@@ -93,15 +94,13 @@ async function initialize()
 			//console.log(univs.length);
 			//console.log(univs[0]);
 			
-			res.format({/*
-				//let format = req.params.format;
+			res.format({
 				'application/xml+rdf': function () {
 					var xmlrdf = '<?xml version="1.0"?>';  
 					xmlrdf = xmlrdf.concat('<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:univvoc="https://cours20202021m2.herokuapp.com/rdfvocabulary">'); //Mettre le lien vers notre vocabulaire 
 					xmlrdf = xmlrdf.concat('<univvoc:Region>');
-					xmlrdf = xmlrdf.concat('<univvoc:hasLibR>').concat(data_region).concat('</univvoc:hasLibR>'); // remplacement data_region par univ.region ??
-					//xmlrdf = xmlrdf.concat('<univvoc:hasCodeR>').concat(univ.coderegion).concat('</univvoc:hasCodeR>'); // Ajout code region
-					//ajouter code region
+					xmlrdf = xmlrdf.concat('<univvoc:hasLibR>').concat(data_region).concat('</univvoc:hasLibR>'); 
+					//xmlrdf = xmlrdf.concat('<univvoc:hasLibR>').concat(duniv.codeR).concat('</univvoc:hasLibR>'); 
 					xmlrdf = xmlrdf.concat('<univvoc:hasEtablissement>');
 					univs.forEach(function(univ){
 						xmlrdf=xmlrdf.concat('<univvoc:Etablissement>');
@@ -110,21 +109,24 @@ async function initialize()
 						xmlrdf = xmlrdf.concat('<univvoc:hasName>').concat(univ.nometablissement).concat('</univvoc:hasName>'); 
 						xmlrdf = xmlrdf.concat('<univvoc:hastype>').concat(univ.typeetablissement).concat('</univvoc:hastype>'); 
 						xmlrdf = xmlrdf.concat('<univvoc:hasEff>').concat(univ.effectif).concat('</univvoc:hasEff>'); 
+						xmlrdf = xmlrdf.concat('<univvoc:hasEffCapa>').concat(univ.capacEtab).concat('</univvoc:hasEffCapa>'); 
+						xmlrdf = xmlrdf.concat('<univvoc:hasEffCand>').concat(univ.effCandidat).concat('</univvoc:hasEffCand>');
+						xmlrdf = xmlrdf.concat('<univvoc:hasLienW>').concat(univ.wiki).concat('</univvoc:hasLienW>');
 						xmlrdf=xmlrdf.concat('</univvoc:Etablissement>');
 					})
 					xmlrdf = xmlrdf.concat('</univvoc:hasEtablissement>');
 					xmlrdf = xmlrdf.concat('</univvoc:Region>');
 					xmlrdf = xmlrdf.concat('</rdf:RDF>');
-					//res.setHeader('Content-disposition', 'attachment; filename=trends.xml');
+					//res.setHeader('Content-disposition', 'attachment; filename=.xml');
 					res.set('Content-Type', 'application/xml');
 					res.send(xmlrdf);
 					//console.log(xmlrdf);
-				},	*/	
+				},
 				'application/json': function () {
                     res.setHeader('Content-disposition', 'attachment; filename=univs.json'); //do nothing
                     res.set('Content-Type', 'application/json');
                     res.json(univs); // Modif json en univs
-				}		
+				}
 			});
         });
     });
