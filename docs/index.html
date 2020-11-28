@@ -42,28 +42,28 @@
 	<div id ='select'>	
 	<SELECT name="region" id="inRegion"> 
 		<OPTION id ="op" VALUE="none">Sélectionne la région</OPTION> 
-		<OPTION VALUE="AuRA">AuRA</OPTION> 
-		<OPTION VALUE="BFC">Bourgogne-Franche-Comté</OPTION> 
+		<!--<OPTION VALUE="AuRA">AuRA</OPTION> -->
+		<!--<OPTION VALUE="BFC">Bourgogne-Franche-Comté</OPTION> -->
 		<OPTION VALUE="Bretagne">Bretagne</OPTION> 
-		<OPTION VALUE="CentreValLoire">Centre-Val de Loire</OPTION> 
+		<!--<OPTION VALUE="CentreValLoire">Centre-Val de Loire</OPTION> -->
 		<OPTION VALUE="Corse">Corse</OPTION> 
-		<OPTION VALUE="Etranger">Etranger</OPTION> 
-		<OPTION VALUE="GrandEst">Grand Est</OPTION> 
+		<!--<OPTION VALUE="Etranger">Etranger</OPTION> -->
+		<!--<OPTION VALUE="GrandEst">Grand Est</OPTION> -->
 		<OPTION VALUE="Guadeloupe">Guadeloupe</OPTION> 
 		<OPTION VALUE="Guyane">Guyane</OPTION> 
-		<OPTION VALUE="hautsdefrance">Hauts-de-France</OPTION> 
-		<OPTION VALUE="iledefrance">Ile-de-France</OPTION> 
-		<OPTION VALUE="Reunion">La Réunion</OPTION> 
+		<!--<OPTION VALUE="hautsdefrance">Hauts-de-France</OPTION> -->
+		<!--<OPTION VALUE="iledefrance">Ile-de-France</OPTION> -->
+		<!--<OPTION VALUE="Reunion">La Réunion</OPTION> -->
 		<OPTION VALUE="Martinique">Martinique</OPTION> 
 		<OPTION VALUE="Mayotte">Mayotte</OPTION> 
 		<OPTION VALUE="Normandie">Normandie</OPTION> 
-		<OPTION VALUE="Aquitaine">Nouvelle-Aquitaine</OPTION> 
+		<!--<OPTION VALUE="Aquitaine">Nouvelle-Aquitaine</OPTION> -->
 		<OPTION VALUE="Occitanie">Occitanie</OPTION> 
-		<OPTION VALUE="Loire">Pays de la Loire</OPTION> 
-		<OPTION VALUE="Polynesie">Polynésie Française</OPTION>
-		<OPTION VALUE="PACA">PACA</OPTION> 
+		<!--<OPTION VALUE="Loire">Pays de la Loire</OPTION> -->
+		<!--<OPTION VALUE="Polynesie">Polynésie Française</OPTION> -->
+		<!--<OPTION VALUE="PACA">PACA</OPTION> -->
 	</SELECT>
-		<button type="button" onclick="graph1()">Ok!</button></div>
+		<button type="button" onclick="graph1();graph3()">Ok!</button></div>
 		<div id = "export">
 			<input type="image" id="img1" src="images/json1.png" width='50'>
 			<input type="image" src="images/xml.png" width='67'>
@@ -73,10 +73,8 @@
 		
 		<div id="graphiques"  >
 			<div id="vizu1" >
-				<p>Top 10 des etablissements les plus demandés</p>
-				<!--*************************-->
+				<p>Graphique 1 : Etablissements : du plus demandé au moins demandé</p>
 					<svg id="svg" width="470" height="415"></svg>	
-				<!--*************************-->
 			</div>				
 
 			<div id="vizu2">

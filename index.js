@@ -108,7 +108,7 @@ async function initialize()
 						xmlrdf = xmlrdf.concat('<univvoc:hasID>').concat(univ.id).concat('</univvoc:hasID>'); 
 						xmlrdf = xmlrdf.concat('<univvoc:hasCom>').concat(univ.commune).concat('</univvoc:hasCom>'); 
 						xmlrdf = xmlrdf.concat('<univvoc:hasName>').concat(univ.nometablissement).concat('</univvoc:hasName>'); 
-						xmlrdf = xmlrdf.concat('<univvoc:hasID>').concat(univ.typeetablissement).concat('</univvoc:hasID>'); 
+						xmlrdf = xmlrdf.concat('<univvoc:hastype>').concat(univ.typeetablissement).concat('</univvoc:hastype>'); 
 						xmlrdf = xmlrdf.concat('<univvoc:hasEff>').concat(univ.effectif).concat('</univvoc:hasEff>'); 
 						xmlrdf=xmlrdf.concat('</univvoc:Etablissement>');
 					})

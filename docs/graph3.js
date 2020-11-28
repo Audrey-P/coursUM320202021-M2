@@ -1,4 +1,4 @@
-async function graph1 (){
+async function graph3 (){
 	var sent_region = document.getElementById('inRegion').value;
 	const response = await fetch('/univs/'+sent_region);
 	var univs = await response.json();
