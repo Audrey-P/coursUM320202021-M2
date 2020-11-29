@@ -11,9 +11,9 @@
 		<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script> 
 		<link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
 
-		<script type="text/javascript" src="graph1.js"></script>
-		<script type="text/javascript" src="graph2.js"></script>
-		<script type="text/javascript" src="graph3.js"></script>
+		<script type="text/javascript" src="graphs.js"></script>
+		<script type="text/javascript" src="json.js"></script>
+
 		<!--<script type="text/javascript" src="functions.js"></script>-->
 		
 
@@ -63,12 +63,15 @@
 		<!--<OPTION VALUE="Polynesie">Polynésie Française</OPTION> -->
 		<!--<OPTION VALUE="PACA">PACA</OPTION> -->
 	</SELECT>
-		<button type="button" onclick="graph1();graph2();graph3()">Ok!</button></div>
+		<button type="button" onclick="graphs()">Ok!</button></div>
 		<div id = "export">
-			<input type="image" id="img1" src="images/json1.png" width='50'>
-			<input type="image" src="images/xml.png" width='67'>
+			<!--<input type="image" id="img1" src="images/json1.png" width='50'> -->
+			<!--<input type="image" src="images/xml.png" width='67'> -->
+			<button type="button" class="dl" onclick="dljson()"><img id="img1" src="images/json1.png" width='50' /></button>
+			<button type="button" class="dl" ><img src="images/xml.png" width='67' /></button>
 		</div>
 		</section>
+
 
 		
 		<div id="graphiques"  >
