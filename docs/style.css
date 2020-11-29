@@ -88,7 +88,7 @@ section {
 #vizu1 {
 	background-color: #CCDDEE;
 	/*float: left;*/
-	width: 485px;
+	width: 510px;
 	height: 480px;
 	display: inline-block;
 	margin-right: 35px;
@@ -97,7 +97,7 @@ section {
 #vizu2 {
 	background-color: #BBDEEA;
 	/*float: right;*/
-	width: 485px;
+	width: 510px;
 	height: 480px;
 	display: inline-block;
 	margin-left: 35px;
