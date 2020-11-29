@@ -88,8 +88,8 @@ section {
 #vizu1 {
 	background-color: #CCDDEE;
 	/*float: left;*/
-	width: 470px;
-	height: 470px;
+	width: 485px;
+	height: 480px;
 	display: inline-block;
 	margin-right: 35px;
 }
@@ -97,8 +97,8 @@ section {
 #vizu2 {
 	background-color: #BBDEEA;
 	/*float: right;*/
-	width: 470px;
-	height: 470px;
+	width: 485px;
+	height: 480px;
 	display: inline-block;
 	margin-left: 35px;
 }
