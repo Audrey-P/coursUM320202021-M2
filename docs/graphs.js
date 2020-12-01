@@ -53,7 +53,7 @@ async function graphs (){
 		
 		var scaleX = d3.scaleLinear();
 		scaleX.domain([0,d3.max(univs, function(d) { return d.effCandidat/d.effectif; })]); 
-		scaleX.range([0,210]);
+		scaleX.range([0,365]);
 			
 		var axisX = d3.axisBottom(scaleX);
 		var gAxisX = gContainer.append("g");
@@ -78,14 +78,14 @@ async function graphs (){
 		// Add X axis label:
 		svg.append("text")
 		.attr("text-anchor", "end")
-		.attr("x", 460)
+		.attr("x", 618)
 		.attr("y", 415)
 		.text("Nb candidats R2019 / Effectif R2018");
 
 		// Add Y axis label:
 		svg.append("text")
 		.attr("text-anchor", "end")
-		.attr("x", 100)
+		.attr("x", 300)
 		.attr("y", 15)
 		.text("Etablissement");
 	}; 

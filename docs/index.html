@@ -16,6 +16,15 @@
 
 		<!--<script type="text/javascript" src="functions.js"></script>-->
 		
+		
+		<script>
+         $(document).ready(function(){
+             $('#clic').click(function() {
+               $('#graphiques').toggle("slide");
+			   $('#test').toggle("slide");
+             });
+         });
+		</script>
 
 	</head>
 	
@@ -63,7 +72,7 @@
 		<!--<OPTION VALUE="Polynesie">Polynésie Française</OPTION> -->
 		<!--<OPTION VALUE="PACA">PACA</OPTION> -->
 	</SELECT>
-		<button type="button" onclick="graphs()">Ok!</button></div>
+		<button id = "clic" type="button" onclick="graphs()">Ok!</button></div>
 		<div id = "export">
 			<button type="button" class="download" onclick="dljson()"><img id="img1" src="images/json1.png" width='50' /></button>
 			<button type="button" class="download" ><img src="images/xml.png" width='67' /></button>
@@ -75,7 +84,7 @@
 		<div id="graphiques"  >
 			<div id="vizu1" >
 				<p><strong>Graphique 1 :</strong> Etablissements du plus demandé au moins demandé</p>
-					<svg id="svg" width="470" height="415"></svg>	
+					<svg id="svg" width="630" height="415"></svg>	
 			</div>				
 
 			<div id="vizu2">
