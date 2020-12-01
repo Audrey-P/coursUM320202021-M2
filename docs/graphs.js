@@ -132,24 +132,31 @@ async function graphs (){
 		
 		var C = univs.map(function(d) { return d.effectif}); // On récupère les effectifs des etablissements
 		console.log('effectif etablissements',C);
+		
+		//var D = univs.map(function(r) { if (r.capacEtab != 0) return Math.trunc(r.effectif/r.capacEtab); else return 0;}); // quotient entre effectif et capacité de l'établissements
+		//console.log(' effectif / capacité etablissements',D);
+		var D = univs.map(function(d) { return ((d.effCandidat/10000)*2)});
+		console.log('effectif des demandes',D);
 
                 // Dots
                 var circle = [];
                 for(i=0;i<A.length;i++){
 					circle[i]=gContainer.append("circle");
-                    //circle[i].A(A[i]);
-					//console.log(A[5]);
                     circle[i].attr("class", "point");
                     circle[i].attr("cx", scaleX(B[i]));
-					//console.log(circle[i].attr("cx", scaleX(B[i])));
-					//console.log(circle[i].attr("cx", scaleX(function(d) { return d.capacEtab; })));
 					circle[i].attr("cy", scaleY(C[i]));
-                    circle[i].attr("r", 7);
+					circle[i].attr("r", D[i]);
+					//console.log(scaleY(D[i]));
+					//circle[i].append("title")
+					//circle[i].text(A[i]);
                     circle[i].attr("transform","translate(50,27)");
 					circle[i].style("fill", "dimgrey");
 					circle[i].style("stroke", "white");
 					circle[i].style("troke-width", 2);
                 }
+		
+
+		
 		
 		// Add X axis label:
 		svg.append("text")
