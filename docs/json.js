@@ -9,7 +9,7 @@ async function dljson (){
 	);
 	var univs = await response.json();
 
-	 download(JSON.stringify(univs), "json-file-name.json", "text/plain");
+	download(JSON.stringify(univs), "data_js.json", "text/plain");
 
 
 };
@@ -22,3 +22,15 @@ function download(content, fileName, contentType) {
  a.download = fileName;
  a.click();
 }
+
+async function dlxml (){
+	var sent_region = document.getElementById('inRegion').value;
+	const response = await fetch('/univs/'+sent_region);
+	var univs = await response.text();
+	//return univs;
+
+	console.log(univs);
+	download(univs, "data_xml.xml", "application/xml");
+
+
+};

@@ -46,19 +46,19 @@ async function graphs (){
 		var axisY = d3.axisLeft(scaleY);
 		var gAxisY = gContainer.append("g");
 		gAxisY.call(axisY);
-		gAxisY.attr("transform", "translate(250,25)");
+		gAxisY.attr("transform", "translate(360,25)");
 
 
 		//Création de l'axe X
 		
 		var scaleX = d3.scaleLinear();
 		scaleX.domain([0,d3.max(univs, function(d) { return d.effCandidat/d.effectif; })]); 
-		scaleX.range([0,365]);
+		scaleX.range([0,255]);
 			
 		var axisX = d3.axisBottom(scaleX);
 		var gAxisX = gContainer.append("g");
 		gAxisX.call(axisX);
-		gAxisX.attr("transform", "translate(250,375)");		
+		gAxisX.attr("transform", "translate(360,375)");		
 
 		//for(i in range(0:2)){}
 
@@ -72,7 +72,7 @@ async function graphs (){
 		.attr("width", function(d) { return scaleX(d.effCandidat/d.effectif); })
 		.attr("height", scaleY.bandwidth() )
 		.attr("fill", "#182b6f")
-		.attr("transform", "translate(250,25)");	
+		.attr("transform", "translate(360,25)");	
 		
 
 		// Add X axis label:
@@ -124,13 +124,13 @@ async function graphs (){
 				gAxisX.call(axisX);
 				gAxisX.attr("transform", "translate(50,375)");	
 				
-		var A = univs.map(function(d) { return d.nometablissement/*.substring(0, 30)*/}); // On récupère les noms des etablissements dans une variable A
+		var A = univs.map(function(d) { return d.nometablissement}); // On récupère les noms des etablissements dans une variable A
 		console.log('Labels etablissements',A);
 		
-		var B = univs.map(function(d) { return d.capacEtab/*.substring(0, 30)*/}); // On récupère les capacités des etablissements
+		var B = univs.map(function(d) { return d.capacEtab}); // On récupère les capacités des etablissements
 		console.log('Capacité etablissements',B);
 		
-		var C = univs.map(function(d) { return d.effectif/*.substring(0, 30)*/}); // On récupère les effectifs des etablissements
+		var C = univs.map(function(d) { return d.effectif}); // On récupère les effectifs des etablissements
 		console.log('effectif etablissements',C);
 
                 // Dots
@@ -144,9 +144,11 @@ async function graphs (){
 					//console.log(circle[i].attr("cx", scaleX(B[i])));
 					//console.log(circle[i].attr("cx", scaleX(function(d) { return d.capacEtab; })));
 					circle[i].attr("cy", scaleY(C[i]));
-                    circle[i].attr("r", 1.5);
+                    circle[i].attr("r", 7);
                     circle[i].attr("transform","translate(50,27)");
-                    circle[i].style("fill", "dimgrey");
+					circle[i].style("fill", "dimgrey");
+					circle[i].style("stroke", "white");
+					circle[i].style("troke-width", 2);
                 }
 		
 		// Add X axis label:
