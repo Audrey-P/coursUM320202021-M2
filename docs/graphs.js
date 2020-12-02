@@ -1,4 +1,7 @@
+//function re(){window.location.reload(forceGet=true)}
+
 async function graphs (){
+
 	var sent_region = document.getElementById('inRegion').value;
 	const response = await fetch('/univs/'+sent_region,
 	{
@@ -135,8 +138,13 @@ async function graphs (){
 		
 		//var D = univs.map(function(r) { if (r.capacEtab != 0) return Math.trunc(r.effectif/r.capacEtab); else return 0;}); // quotient entre effectif et capacité de l'établissements
 		//console.log(' effectif / capacité etablissements',D);
-		var D = univs.map(function(d) { return ((d.effCandidat/10000)*2)});
+		var D = univs.map(function(d) { return ((d.effCandidat))});
 		console.log('effectif des demandes',D);
+
+		var scaleZ = d3.scaleLinear();
+		//scaleX.domain([0,300]); 
+		scaleZ.domain([0,d3.max(univs, function(d) { return d.effCandidat; })]); //capacité
+		scaleZ.range([3,8]);
 
                 // Dots
                 var circle = [];
@@ -145,7 +153,7 @@ async function graphs (){
                     circle[i].attr("class", "point");
                     circle[i].attr("cx", scaleX(B[i]));
 					circle[i].attr("cy", scaleY(C[i]));
-					circle[i].attr("r", D[i]);
+					circle[i].attr("r", scaleZ(D[i]));
 					//console.log(scaleY(D[i]));
 					//circle[i].append("title")
 					//circle[i].text(A[i]);
@@ -229,7 +237,7 @@ async function graphs (){
 		} );
 	} );	
 	
-	
+
 	
 	
 	
