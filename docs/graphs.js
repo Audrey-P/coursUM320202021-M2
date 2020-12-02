@@ -154,8 +154,22 @@ async function graphs (){
 					circle[i].style("stroke", "white");
 					circle[i].style("troke-width", 2);
                 }
-		
 
+
+
+		// add legend  
+			var borderSVG2 = svg.append("rect");
+			borderSVG2.attr("width",140);
+			borderSVG2.attr("height",45);
+			borderSVG2.attr("fill","none");
+			borderSVG2.attr("stroke","gray");
+			borderSVG2.attr("transform", "translate(320,275)");
+			svg.append("circle").attr("cx",330).attr("cy",301).attr("r", 5).style("fill", "dimgrey").style("stroke", "white");
+			svg.append("text").attr("x", 340).attr("y", 285).text("Taille des points :").style("font-size", "11px").attr("alignment-baseline","middle").attr("text-decoration", "underline");
+			svg.append("text").attr("x", 340).attr("y", 298).text("Nombre de demande").style("font-size", "13.5px").attr("alignment-baseline","middle");
+			svg.append("text").attr("x", 340).attr("y", 308).text("par établissement").style("font-size", "13.5px").attr("alignment-baseline","middle");
+
+		
 		
 		
 		// Add X axis label:
