@@ -14,8 +14,10 @@ async function graphs (){
 	// Graphique N°1
 	function draw(){
 
+		var univs2= univs.filter(function(univs){return univs.effCandidat!=0;});
+		
 		// sort data
-		univs.sort(function(b, a) {
+		univs2.sort(function(b, a) {
 			return (a.effCandidat/a.effectif) - (b.effCandidat/b.effectif);
 		});
 
@@ -37,7 +39,7 @@ async function graphs (){
 
 		//Création de l'axe Y
 		var scaleY = d3.scaleBand();
-		var A = univs.map(function(d) { return d.nometablissement/*.substring(0, 30)*/}); // On récupère les noms des etablissements dans une variable A
+		var A = univs2.map(function(d) { return d.nometablissement/*.substring(0, 30)*/}); // On récupère les noms des etablissements dans une variable A
 		console.log('Labels etablissements',A)
 		scaleY.domain(A); // A normalement
 		scaleY.range([0,350]); 
@@ -46,25 +48,25 @@ async function graphs (){
 		var axisY = d3.axisLeft(scaleY);
 		var gAxisY = gContainer.append("g");
 		gAxisY.call(axisY);
-		gAxisY.attr("transform", "translate(360,25)");
+		gAxisY.attr("transform", "translate(320,25)");
 
 
 		//Création de l'axe X
 		
 		var scaleX = d3.scaleLinear();
-		scaleX.domain([0,d3.max(univs, function(d) { return d.effCandidat/d.effectif; })]); 
+		scaleX.domain([0,d3.max(univs2, function(d) { return d.effCandidat/d.effectif; })]); 
 		scaleX.range([0,255]);
 			
 		var axisX = d3.axisBottom(scaleX);
 		var gAxisX = gContainer.append("g");
 		gAxisX.call(axisX);
-		gAxisX.attr("transform", "translate(360,375)");		
+		gAxisX.attr("transform", "translate(320,375)");		
 
 		//for(i in range(0:2)){}
 
 		//Bars
 		svg.selectAll("myRect")
-		.data(univs)
+		.data(univs2)
 		.enter()
 		.append("rect")
 		.attr("x", scaleX(0) )
@@ -72,7 +74,7 @@ async function graphs (){
 		.attr("width", function(d) { return scaleX(d.effCandidat/d.effectif); })
 		.attr("height", scaleY.bandwidth() )
 		.attr("fill", "#182b6f")
-		.attr("transform", "translate(360,25)");	
+		.attr("transform", "translate(320,25)");	
 		
 
 		// Add X axis label:
@@ -95,17 +97,19 @@ async function graphs (){
 // Graphique N°2
 	function draw2(){
 		
-		var A = univs.map(function(d) { return d.nometablissement}); // On récupère les noms des etablissements dans une variable A
+		var univs2= univs.filter(function(univs){return univs.capacEtab!=0;});
+
+		var A = univs2.map(function(d) { return d.nometablissement}); // On récupère les noms des etablissements dans une variable A
 		//console.log('Labels etablissements',A);
 		
-		var B = univs.map(function(d) { return d.capacEtab}); // On récupère les capacités des etablissements
+		var B = univs2.map(function(d) { return d.capacEtab}); // On récupère les capacités des etablissements
 		console.log('Capacité etablissements',B);
 		
-		var C = univs.map(function(d) { return d.effectif}); // On récupère les effectifs des etablissements
+		var C = univs2.map(function(d) { return d.effectif}); // On récupère les effectifs des etablissements
 		console.log('effectif etablissements',C);
 		
 		//console.log(' effectif / capacité etablissements',D);
-		var D = univs.map(function(d) { return ((d.effCandidat/10000)*2)});
+		var D = univs2.map(function(d) { return d.effCandidat});
 		console.log('effectif des demandes',D);
 		
 		
@@ -117,8 +121,8 @@ async function graphs (){
         //Création de l'axe Y
 		//var scaleY = d3.scaleOrdinal();
 		var scaleY = d3.scaleLinear();
-		scaleY.domain([d3.max(univs, function(d) { return d.effectif; }), 0]); 
-		console.log(d3.max(univs, function(d) { return d.effectif; }));
+		scaleY.domain([d3.max(univs2, function(d) { return d.effectif; }), 0]); 
+		console.log(d3.max(univs2, function(d) { return d.effectif; }));
         scaleY.range([0,350]); 
 				
 		var axisY = d3.axisLeft(scaleY);
@@ -130,15 +134,27 @@ async function graphs (){
 				
 		var scaleX = d3.scaleLinear();
 		//scaleX.domain([0,300]); 
-		scaleX.domain([0,d3.max(univs, function(d) { return d.capacEtab; })]); //capacité
-		console.log(d3.max(univs, function(d) { return d.capacEtab; }));
+		scaleX.domain([0,d3.max(univs2, function(d) { return d.capacEtab; })]); //capacité
+		console.log(d3.max(univs2, function(d) { return d.capacEtab; }));
 		scaleX.range([0,480]);
 					
 		var axisX = d3.axisBottom(scaleX);
 		var gAxisX = gContainer.append("g");
 		gAxisX.call(axisX);
 		gAxisX.attr("transform", "translate(50,375)");	
-				
+		
+		var scaleZ = d3.scaleLinear();
+		scaleZ.domain([0,d3.max(univs, function(d) { if(d.effCandidat>0){d.effCandidat} return d.effCandidat; })]); //capacité
+		scaleZ.range([2,8]);
+
+		var tooltip = d3.select("#svg1")
+		.append("div")
+		  .style("opacity", 0)
+		  .attr("class", "tooltip")
+		  .style("background-color", "black")
+		  .style("border-radius", "5px")
+		  .style("padding", "10px")
+		  .style("color", "white")
 		
         // Dots
         var circle = [];
@@ -147,7 +163,7 @@ async function graphs (){
             circle[i].attr("class", "point");
             circle[i].attr("cx", scaleX(B[i]));
 			circle[i].attr("cy", scaleY(C[i]));
-			circle[i].attr("r", D[i]);
+			circle[i].attr("r", scaleZ(D[i]));
 			circle[i].attr("id", "circle");
             circle[i].attr("transform","translate(50,27)");
 			circle[i].style("fill", "dimgrey");
