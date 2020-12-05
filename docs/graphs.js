@@ -142,9 +142,6 @@ async function graphs (){
 		
         // Dots
         var circle = [];
-		var rect = [];
-		var text= "";
-		
         for(i=0;i<A.length;i++){
 			circle[i]=gContainer.append("circle");
             circle[i].attr("class", "point");
@@ -153,17 +150,16 @@ async function graphs (){
 			circle[i].attr("r", D[i]);
 			circle[i].attr("id", "circle");
             circle[i].attr("transform","translate(50,27)");
-			//circle[i].attr(onmouseover="drawInfoBox('+i+'));
 			circle[i].style("fill", "dimgrey");
 			circle[i].style("stroke", "white");
-
 			circle[i].on("mouseover", function(d){
 				for(i=0;i<A.length;i++){
 					//console.log(C[i]);
 					d3.select(circle[i]);
-					svg.append("text").attr("x", scaleX(B[i])-15).attr("y", scaleY(C[i])+10).text(A[i]).style("font-size", "9px").attr("alignment-baseline","middle").attr("id", "txt");
+					gContainer.append("text").attr("x", scaleX(B[i])-15).attr("y", scaleY(C[i])+10).text(A[i]).style("font-size", "9px").attr("alignment-baseline","middle").attr("id", "txt");
 
-			}});
+			}
+			});
 			
 			circle[i].on("mouseout", function(i) {
 				for(i=0;i<A.length;i++){
