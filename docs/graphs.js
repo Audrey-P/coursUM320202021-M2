@@ -8,40 +8,26 @@ async function graphs (){
 		}}
 	);
 	var univs = await response.json();
-	console.log("Async function graph1 :",univs[0]);
-	//return univs
+	//console.log("Async function graph1 :",univs[0]);
 
 	// Graphique N°1
-	function draw(){
 
-		var univs2= univs.filter(function(univs){return univs.effCandidat!=0;});
+		var univs2= univs.filter(function(univs){return univs.effCandidat!=0;}); 
 		
-		// sort data
+		// Tri
 		univs2.sort(function(b, a) {
 			return (a.effCandidat/a.effectif) - (b.effCandidat/b.effectif);
 		});
-
-		/*//select ten first data
-		if (univs.length>10){
-			univs = [];
-			for(let i = 0; i < 11; i++){
-				univs.push(univs[i])
-			}
-		}*/
 
 		var svg= d3.select("#svg");
 		var gContainer= svg.append("g");
 		var borderSVG= svg.append("rect");
 		borderSVG.attr("fill","none");
 
-		var val = [200, 500,200,300]
-		var etab = ["Etablissement A", "Etablissement B","Etablissement C","Etablissement D"]
-
 		//Création de l'axe Y
 		var scaleY = d3.scaleBand();
-		var A = univs2.map(function(d) { return d.nometablissement/*.substring(0, 30)*/}); // On récupère les noms des etablissements dans une variable A
-		console.log('Labels etablissements',A)
-		scaleY.domain(A); // A normalement
+		var A = univs2.map(function(d) { return d.nometablissement}); // On récupère les noms des etablissements dans une variable A
+		scaleY.domain(A); 
 		scaleY.range([0,350]); 
 		scaleY.padding(.1);
 
@@ -50,9 +36,7 @@ async function graphs (){
 		gAxisY.call(axisY);
 		gAxisY.attr("transform", "translate(320,25)");
 
-
 		//Création de l'axe X
-		
 		var scaleX = d3.scaleLinear();
 		scaleX.domain([0,d3.max(univs2, function(d) { return d.effCandidat/d.effectif; })]); 
 		scaleX.range([0,255]);
@@ -62,9 +46,7 @@ async function graphs (){
 		gAxisX.call(axisX);
 		gAxisX.attr("transform", "translate(320,375)");		
 
-		//for(i in range(0:2)){}
-
-		//Bars
+		//Bars (https://www.d3-graph-gallery.com/graph/)
 		svg.selectAll("myRect")
 		.data(univs2)
 		.enter()
@@ -76,53 +58,45 @@ async function graphs (){
 		.attr("fill", "#182b6f")
 		.attr("transform", "translate(320,25)");	
 		
-
-		// Add X axis label:
+		//Label axe X
 		svg.append("text")
 		.attr("text-anchor", "end")
 		.attr("x", 618)
 		.attr("y", 415)
 		.text("Nb candidats R2019 / Effectif R2018");
 
-		// Add Y axis label:
+		//Label axe Y
 		svg.append("text")
 		.attr("text-anchor", "end")
-		.attr("x", 300)
+		.attr("x", 100)
 		.attr("y", 15)
 		.text("Etablissement");
-	}; 
-	draw()
-	
-	
-// Graphique N°2
-	function draw2(){
+
+
+	// Graphique N°2
 		
 		var univs2= univs.filter(function(univs){return univs.capacEtab!=0;});
 
 		var A = univs2.map(function(d) { return d.nometablissement}); // On récupère les noms des etablissements dans une variable A
-		//console.log('Labels etablissements',A);
 		
 		var B = univs2.map(function(d) { return d.capacEtab}); // On récupère les capacités des etablissements
-		console.log('Capacité etablissements',B);
+		//console.log('Capacité etablissements',B);
 		
 		var C = univs2.map(function(d) { return d.effectif}); // On récupère les effectifs des etablissements
-		console.log('effectif etablissements',C);
+		//console.log('effectif etablissements',C);
 		
-		//console.log(' effectif / capacité etablissements',D);
 		var D = univs2.map(function(d) { return d.effCandidat});
-		console.log('effectif des demandes',D);
-		
-		
+		//console.log('effectif des demandes',D);
+
 		var svg= d3.select("#svg1");
 		var gContainer= svg.append("g");
 		var borderSVG= svg.append("rect");
 		borderSVG.attr("fill","none");
 						
         //Création de l'axe Y
-		//var scaleY = d3.scaleOrdinal();
 		var scaleY = d3.scaleLinear();
 		scaleY.domain([d3.max(univs2, function(d) { return d.effectif; }), 0]); 
-		console.log(d3.max(univs2, function(d) { return d.effectif; }));
+		//console.log(d3.max(univs2, function(d) { return d.effectif; }));
         scaleY.range([0,350]); 
 				
 		var axisY = d3.axisLeft(scaleY);
@@ -131,11 +105,9 @@ async function graphs (){
 		gAxisY.attr("transform", "translate(50,25)");			
 				
 		//Création de l'axe X
-				
 		var scaleX = d3.scaleLinear();
-		//scaleX.domain([0,300]); 
-		scaleX.domain([0,d3.max(univs2, function(d) { return d.capacEtab; })]); //capacité
-		console.log(d3.max(univs2, function(d) { return d.capacEtab; }));
+		scaleX.domain([0,d3.max(univs2, function(d) { return d.capacEtab; })]); 
+		//console.log(d3.max(univs2, function(d) { return d.capacEtab; }));
 		scaleX.range([0,480]);
 					
 		var axisX = d3.axisBottom(scaleX);
@@ -144,17 +116,8 @@ async function graphs (){
 		gAxisX.attr("transform", "translate(50,375)");	
 		
 		var scaleZ = d3.scaleLinear();
-		scaleZ.domain([0,d3.max(univs, function(d) { if(d.effCandidat>0){d.effCandidat} return d.effCandidat; })]); //capacité
+		scaleZ.domain([0,d3.max(univs, function(d) { return d.effCandidat; })]); 
 		scaleZ.range([2,8]);
-
-		var tooltip = d3.select("#svg1")
-		.append("div")
-		  .style("opacity", 0)
-		  .attr("class", "tooltip")
-		  .style("background-color", "black")
-		  .style("border-radius", "5px")
-		  .style("padding", "10px")
-		  .style("color", "white")
 		
         // Dots
         var circle = [];
@@ -168,28 +131,22 @@ async function graphs (){
             circle[i].attr("transform","translate(50,27)");
 			circle[i].style("fill", "dimgrey");
 			circle[i].style("stroke", "white");
+			circle[i].style("troke-width", 2);
 			circle[i].on("mouseover", function(d){
 				for(i=0;i<A.length;i++){
 					//console.log(C[i]);
 					d3.select(circle[i]);
 					gContainer.append("text").attr("x", scaleX(B[i])-15).attr("y", scaleY(C[i])+10).text(A[i]).style("font-size", "9px").attr("alignment-baseline","middle").attr("id", "txt");
-
 			}
 			});
-			
 			circle[i].on("mouseout", function(i) {
 				for(i=0;i<A.length;i++){
 					d3.select("#txt").remove();
 				}
-			});
+			});		
+		};
 
-
-			circle[i].style("troke-width", 2);
-
-				
-		}
-
-		// add legend  
+		//Legende 
 		var borderSVG2 = svg.append("rect");
 		borderSVG2.attr("width",140);
 		borderSVG2.attr("height",45);
@@ -202,26 +159,19 @@ async function graphs (){
 		svg.append("text").attr("x", 420).attr("y", 308).text("par établissement").style("font-size", "13.5px").attr("alignment-baseline","middle");
 
 
-		// Add X axis label:
+		//Label axe X
 		svg.append("text")
 		.attr("text-anchor", "end")
-		.attr("x", 460)
+		.attr("x", 550)
 		.attr("y", 412)
 		.text("Capacité d'accueil des établissements");
 
-		// Add Y axis label:
+		//Label axe Y
 		svg.append("text")
 		.attr("text-anchor", "end")
 		.attr("x", 260)
 		.attr("y", 15)
 		.text("Effectif de la rentrée des établissements");				
-			
-
-	};
-
-	draw2();
-
-
 
 
 //Tableau détaillé
