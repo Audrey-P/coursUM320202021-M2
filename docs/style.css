@@ -92,16 +92,16 @@ section {
 	width: 630px;
 	height: 480px;
 	display: inline-block;
-	margin-right: 15px;
+	margin-right: 7px;
 }
 	
 #vizu2 {
 	background-color: #BBDEEA;
 	/*float: right;*/
-	width: 570px;
+	width: 580px;
 	height: 480px;
 	display: inline-block;
-	margin-left: 15px;
+	margin-left: 7px;
 }
 
 
