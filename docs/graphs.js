@@ -1,4 +1,6 @@
 async function graphs (){
+	d3.select("#svg").html("");
+	d3.select("#svg1").html("");
 	var sent_region = document.getElementById('inRegion').value;
 	const response = await fetch('/univs/'+sent_region,
 	{
