@@ -19,9 +19,14 @@
 		
 		<script>
          $(document).ready(function(){
+             $('#graphiques').hide();
+	     $('#test').hide();
+		 
              $('#clic').click(function() {
-               $('#graphiques').toggle("slide");
-			   $('#test').toggle("slide");
+		if ($('#graphiques').is(':hidden')){
+			$('#graphiques').show();
+			$('#test').show();
+		}
              });
          });
 		</script>
