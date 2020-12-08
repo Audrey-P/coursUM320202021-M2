@@ -187,7 +187,7 @@ async function graphs (){
 			language: {url: "French.json"},
 			columns: [
 				{ title: "Etablissement",data: ".nometablissement" },
-				{ title: "Type",data: ".typeetab" },
+				{ title: "Type",data: ".typeetablissement" },
 				{ title: "Commune",data: ".commune" },
 				{ title: "Capacité d'accueil",data: ".capacEtab" },
 				{ title: "Effectifs inscrits",data: ".effectif" },

@@ -26,7 +26,6 @@ Liste exhaustive des variables conservées lors du fetch :
 - "element_wikidata": Lien vers les informations liées à l'établissement sur Wikipedia,
 - "etablissement_lib": Nom complet de l'établissement,
 - "etablissement_type_lib": Type détablissement détaillé (ex: "Universités pluridisciplinaires avec santé"),
-- "etablissement_type2": Type d'établissement (université, IUT, etc.),
 - "effectif": Effectif des inscrits (Somme pour chaque établissement)
 
 L'API Parcoursup contenant uniquement des données sur la session 2019, nous avons décidé de ne conserver que l'année scolaire 2018-2019 de l'API sur les effectifs.

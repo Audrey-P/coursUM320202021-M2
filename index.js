@@ -64,7 +64,6 @@ async function initialize()
 				//univ.departement = record.fields.dep_etab_lib;
 				univ.nometablissement = record.fields.etablissement_lib;
 				univ.typeetablissement = record.fields.etablissement_type_lib;
-				univ.typeetab = record.fields.etablissement_type_2;
 				univ.effectif = record.fields.effectif;
 				univ.capacEtab = 0;
 				univ.effCandidat = 0;
