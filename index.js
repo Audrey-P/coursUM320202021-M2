@@ -64,24 +64,17 @@ async function initialize()
 				//univ.departement = record.fields.dep_etab_lib;
 				univ.nometablissement = record.fields.etablissement_lib;
 				univ.typeetablissement = record.fields.etablissement_type_lib;
+				univ.typeetab = record.fields.etablissement_type_2;
 				univ.effectif = record.fields.effectif;
 				univ.capacEtab = 0;
 				univ.effCandidat = 0;
-				//univ.effCandPPrincipale = 0;
-				//univ.effCandPSecond = 0;
 				univ.effCandAccPorpos = 0;
-				univ.effCandAdmisPrinc = 0;
-				//univ.effCandPAdmisSecond = 0;
 				
 				records2.forEach(function(record2){
 					if (univ.id == record2.fields.cod_uai){
 						univ.capacEtab += record2.fields.capa_fin;
 						univ.effCandidat += record2.fields.voe_tot;
-						//univ.effCandPPrincipale += record2.fields.nb_voe_pp;
-						//univ.effCandPSecond += record2.fields.nb_voe_pc;
 						univ.effCandAccPorpos += record2.fields.acc_tot;
-						univ.effCandAdmisPrinc += record2.fields.acc_pp;
-						//univ.effCandPAdmisSecond += record2.fields.acc_pc;
 						
 					}
 					else{
